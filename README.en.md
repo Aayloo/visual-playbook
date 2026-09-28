@@ -92,7 +92,8 @@ formal occasions use slides. Never mix all four on one page.**
 ## How to use it
 
 1. **Start with the occasion table above** to decide which kind of effect this job needs.
-2. **Open the gallery** ([`gallery/index.html`](gallery/index.html)) and pick the closest entry in that category.
+2. **Open the gallery** ([online](https://aayloo.github.io/visual-playbook/) or local
+   [`docs/index.html`](docs/index.html)) and pick the closest entry in that category.
 3. **Read the "Copy" line** — that is the actionable part; the case is only a reference.
 4. **Prefer entries tagged open source** — those drop straight into a project.
 5. **Record what worked** in [`CHANGELOG.md`](CHANGELOG.md) so the next job starts from evidence.
@@ -110,15 +111,21 @@ visual-playbook/
 ├─ build/
 │   ├─ template.html    page template
 │   └─ build.mjs        generator
-├─ gallery/index.html   generated: bilingual gallery (self-contained single file)
+├─ docs/
+│   ├─ index.html       generated: bilingual gallery (self-contained single file)
+│   └─ repo-setup*.md   repository advice and usage
 ├─ references/
 │   ├─ cases.md         Chinese checklist
 │   └─ cases.en.md      English checklist
-├─ docs/                repository advice and usage
 ├─ tokens/              colour and type tokens
 ├─ THIRD_PARTY.md       linked third-party projects and licences
 └─ CHANGELOG.md
 ```
+
+`docs/` doubles as the GitHub Pages root, so once pushed the gallery lives at
+**[aayloo.github.io/visual-playbook](https://aayloo.github.io/visual-playbook/)**.
+It is also a self-contained single file: opening it locally gives the same result, and you can send it
+to a colleague as is.
 
 The important part: **`data/cases.json` is the single source of truth.** The page and both checklists are
 generated. To add a case, change wording or fill in a translation, edit that one file and run:
@@ -127,8 +134,8 @@ generated. To add a case, change wording or fill in a translation, edit that one
 node build/build.mjs
 ```
 
-The build regenerates `gallery/index.html`, `references/cases.md` and `references/cases.en.md`.
-No dependencies to install. Commit the results.
+The build regenerates `docs/index.html`, `references/cases.md` and `references/cases.en.md`.
+No dependencies to install. Commit the results and Pages updates itself.
 
 ---
 

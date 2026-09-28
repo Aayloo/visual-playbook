@@ -56,12 +56,14 @@ Changing one side only is how the two versions start meaning different things.
 
 ## Publishing the gallery
 
-`gallery/index.html` is a self-contained single file, so both routes work:
+`docs/index.html` is a self-contained single file, so both routes work:
 
 1. **Open it locally** — fastest, and easy to send to a colleague.
-2. **GitHub Pages** — `Settings → Pages → Source`, then `main` branch and the `/gallery` directory.
-   Note that free accounts only publish Pages from public repositories; while this repository stays private,
-   the single file is how it travels.
+2. **GitHub Pages** — already configured: `Settings → Pages → Source` points at the `/docs` directory on
+   `main`. That is why the gallery lives in `docs/` rather than anywhere else: Pages only publishes from
+   the repository root or `/docs`. Run `node build/build.mjs`, push, and the site updates itself.
+   Note that free accounts only publish Pages from public repositories; if this repository ever goes
+   private again, the single file is how it travels.
 
 ## Large files
 

@@ -89,7 +89,8 @@
 ## 怎么用
 
 1. **先查上面的场合表**，确定这次该用哪一类效果。
-2. **进画廊**（[`gallery/index.html`](gallery/index.html)），在对应分类里挑一条最接近的。
+2. **进画廊**（[在线版](https://aayloo.github.io/visual-playbook/) 或本地 [`docs/index.html`](docs/index.html)），
+   在对应分类里挑一条最接近的。
 3. **读「可以抄什么」那一行** —— 那才是真正动手的地方，案例本身只是参照。
 4. **优先选标签写着「开源」的** —— 那些可以直接装进项目。
 5. **用完记一笔**在 [`CHANGELOG.md`](CHANGELOG.md) 里，下次知道哪个真的管用。
@@ -107,15 +108,20 @@ visual-playbook/
 ├─ build/
 │   ├─ template.html    页面模板
 │   └─ build.mjs        生成脚本
-├─ gallery/index.html   生成物：双语画廊（自包含单文件）
+├─ docs/
+│   ├─ index.html       生成物：双语画廊（自包含单文件）
+│   └─ repo-setup*.md   仓库建议与用法
 ├─ references/
 │   ├─ cases.md         中文清单
 │   └─ cases.en.md      English checklist
-├─ docs/                仓库建议与用法
 ├─ tokens/              配色与字号变量
 ├─ THIRD_PARTY.md       引用到的第三方项目与许可证
 └─ CHANGELOG.md
 ```
+
+`docs/` 同时是 GitHub Pages 的发布目录，所以推上去之后画廊就在
+**[aayloo.github.io/visual-playbook](https://aayloo.github.io/visual-playbook/)** 上。
+它也是自包含单文件，本地双击打开效果一样，可以直接发给同事。
 
 关键一点：**唯一数据源是 [`data/cases.json`](data/cases.json)。**
 画廊页面和两份清单都是生成出来的。要加案例、改措辞、补英文，只改那一个文件，然后：
@@ -124,8 +130,8 @@ visual-playbook/
 node build/build.mjs
 ```
 
-构建会重新生成 `gallery/index.html`、`references/cases.md`、`references/cases.en.md`，
-不需要安装任何依赖。跑完直接提交即可。
+构建会重新生成 `docs/index.html`、`references/cases.md`、`references/cases.en.md`，
+不需要安装任何依赖。跑完直接提交，Pages 会自动更新。
 
 ---
 

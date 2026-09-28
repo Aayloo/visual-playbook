@@ -56,11 +56,13 @@ node build/build.mjs
 
 ## 发布画廊
 
-`gallery/index.html` 是自包含单文件，两种用法都行：
+`docs/index.html` 是自包含单文件，两种用法都行：
 
 1. **本地双击打开**——最快，也方便直接发给同事。
-2. **GitHub Pages**——仓库 `Settings → Pages → Source` 选 `main` 分支的 `/gallery` 目录。
-   注意免费账号只给公开仓库发 Pages；仓库保持私有时，就靠单文件传播。
+2. **GitHub Pages**——已经配好了：仓库 `Settings → Pages → Source` 是 `main` 分支的 `/docs` 目录。
+   这就是为什么画廊放在 `docs/` 而不是别的名字——Pages 只允许从根目录或 `/docs` 发布。
+   每次 `node build/build.mjs` 之后推上去，网站会自动更新。
+   注意免费账号只给公开仓库发 Pages；如果哪天改回私有，就靠单文件传播。
 
 ## 大文件
 

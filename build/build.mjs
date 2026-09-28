@@ -3,7 +3,8 @@
  * Build script for Visual Playbook.
  *
  * Source of truth : data/cases.json
- * Outputs         : gallery/index.html          (self-contained, bilingual)
+ * Outputs         : docs/index.html             (self-contained, bilingual gallery,
+ *                                                also the GitHub Pages entry point)
  *                   references/cases.md         (Chinese checklist)
  *                   references/cases.en.md      (English checklist)
  *
@@ -27,12 +28,12 @@ const data = JSON.parse(read('data/cases.json'));
 const items = data.categories.flatMap(c => c.items);
 const T = (v, lang) => (v == null ? '' : typeof v === 'string' ? v : v[lang] || v.zh || '');
 
-/* ---------- 1. gallery/index.html ---------- */
+/* ---------- 1. docs/index.html ---------- */
 
 const template = read('build/template.html');
 const payload = JSON.stringify(data).replace(/<\//g, '<\\/');
 const html = template.replace('/*__DATA__*/', payload);
-write('gallery/index.html', html);
+write('docs/index.html', html);
 
 /* ---------- 2. references/cases.md ---------- */
 
@@ -150,4 +151,4 @@ console.log('  categories :', data.categories.length);
 console.log('  entries    :', items.length);
 console.log('  links      :', new Set(items.map(i => i.url)).size);
 console.log('  by type    :', JSON.stringify(byType));
-console.log('  outputs    : gallery/index.html, references/cases.md, references/cases.en.md');
+console.log('  outputs    : docs/index.html, references/cases.md, references/cases.en.md');
