@@ -390,7 +390,9 @@ function repoHtml(){
 function footHtml(){
   return '<div>Visual Playbook &middot; ' + esc(DATA.meta.date) + '</div>' +
          '<div>' + esc(T({ zh: '星数为 GitHub 实时数据；被网站拦截自动访问的链接在浏览器里正常可开。',
-                             en: 'Star counts are live GitHub data; links that block automated requests open normally in a browser.' })) + '</div>';
+                             en: 'Star counts are live GitHub data; links that block automated requests open normally in a browser.' })) + '</div>' +
+         '<div><a href="https://github.com/Aayloo/visual-playbook" target="_blank" rel="noopener">' +
+           esc(T({ zh: '仓库 · MIT 许可证', en: 'Repository · MIT licence' })) + '</a></div>';
 }
 
 function render(){
