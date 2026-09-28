@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Visual Playbook · 视觉呈现素材库</title>
+<style>
+:root{
+  --navy:#0f1d33; --navy-2:#1b2c4a; --ink:#33415c; --muted:#6b7a94;
+  --line:#e5e9f1; --line-soft:#eef1f7; --paper:#fff;
+  --accent:#ef6f0c; --accent-soft:#fff3e8; --blue-soft:#eef4ff;
+  --green:#12795f; --green-soft:#e7f5f1; --violet:#5b4bb8; --violet-soft:#f2f0fb;
+  --rose:#b93a63; --rose-soft:#fdf0f4;
+  --radius:14px; --shadow:0 1px 2px rgba(15,29,51,.05), 0 8px 24px rgba(15,29,51,.06);
+  --shadow-lift:0 2px 6px rgba(15,29,51,.07), 0 18px 40px rgba(15,29,51,.12);
+  --font:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+  --mono:"SFMono-Regular",Menlo,Consolas,"Courier New",monospace;
+  --wrap:1160px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:var(--font);color:var(--ink);background:var(--paper);line-height:1.7;-webkit-font-smoothing:antialiased}
+body::before{content:"";position:fixed;inset:0;z-index:-2;background:
+  radial-gradient(760px 520px at 12% -6%, rgba(64,120,232,.10), transparent 62%),
+  radial-gradient(680px 460px at 92% 4%, rgba(239,111,12,.10), transparent 62%),
+  radial-gradient(900px 700px at 50% 108%, rgba(64,120,232,.06), transparent 65%)}
+body::after{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;
+  background-image:radial-gradient(rgba(15,29,51,.055) 1px, transparent 1px);background-size:22px 22px;
+  -webkit-mask-image:radial-gradient(circle at 50% 26%, #000 24%, transparent 78%);
+  mask-image:radial-gradient(circle at 50% 26%, #000 24%, transparent 78%)}
+a{color:inherit;text-decoration:none}
+#progress{position:fixed;top:0;left:0;height:2px;width:0;background:linear-gradient(90deg,var(--accent),#f79a45);z-index:60;transition:width .1s linear}
+nav{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.84);backdrop-filter:saturate(1.6) blur(14px);border-bottom:1px solid var(--line-soft)}
+.nav-in{max-width:var(--wrap);margin:0 auto;padding:0 22px;display:flex;align-items:center;gap:6px;height:58px;overflow-x:auto;scrollbar-width:none}
+.nav-in::-webkit-scrollbar{display:none}
+.brand{font-weight:800;font-size:14px;color:var(--navy);white-space:nowrap;margin-right:10px}
+.brand span{color:var(--accent)}
+.nav-in a.link{font-size:13px;color:var(--muted);white-space:nowrap;padding:6px 11px;border-radius:999px;transition:.18s}
+.nav-in a.link:hover{color:var(--navy);background:var(--line-soft)}
+.nav-in a.link.on{color:var(--navy);background:var(--accent-soft);font-weight:600}
+.lang{margin-left:auto;display:flex;gap:2px;background:var(--line-soft);border-radius:999px;padding:3px;flex:none}
+.lang button{border:0;background:transparent;font-family:inherit;font-size:12px;font-weight:700;color:var(--muted);padding:4px 11px;border-radius:999px;cursor:pointer;transition:.16s}
+.lang button.on{background:#fff;color:var(--navy);box-shadow:0 1px 3px rgba(15,29,51,.12)}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 24px}
+section{padding:74px 0}
+section.tight{padding:52px 0}
+section[id]{scroll-margin-top:74px}
+header.hero{padding:98px 0 72px}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);background:var(--accent-soft);padding:6px 13px;border-radius:999px;margin-bottom:24px}
+.eyebrow::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--accent)}
+h1{font-size:clamp(32px,5vw,56px);line-height:1.14;letter-spacing:-.022em;color:var(--navy);margin:0 0 20px;font-weight:800}
+h1 em{font-style:normal;color:var(--accent)}
+.lede{font-size:17px;color:var(--muted);max-width:62ch;margin:0 0 34px}
+.stat-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:14px;margin-top:40px}
+.stat{background:rgba(255,255,255,.72);border:1px solid var(--line);border-radius:var(--radius);padding:16px 20px}
+.stat .n{font-size:29px;font-weight:800;color:var(--navy);letter-spacing:-.02em;line-height:1.2}
+.stat .l{font-size:12.5px;color:var(--muted)}
+.scroll-cue{margin-top:46px;font-size:12.5px;color:var(--muted);display:flex;align-items:center;gap:10px}
+.scroll-cue i{display:block;width:1px;height:34px;background:linear-gradient(180deg,var(--accent),transparent);animation:cue 1.9s ease-in-out infinite}
+@keyframes cue{0%,100%{opacity:.25;transform:scaleY(.6)}50%{opacity:1;transform:scaleY(1)}}
+.sec-head{margin-bottom:34px;max-width:72ch}
+.sec-no{font-family:var(--mono);font-size:12px;font-weight:700;letter-spacing:.14em;color:var(--accent);display:block;margin-bottom:11px}
+h2{font-size:clamp(22px,2.9vw,31px);line-height:1.24;letter-spacing:-.018em;color:var(--navy);margin:0 0 12px;font-weight:800}
+.sec-head p{color:var(--muted);font-size:15.5px;margin:0}
+.rulebox{background:linear-gradient(135deg,rgba(239,111,12,.07),rgba(64,120,232,.07));border:1px solid var(--line);border-radius:var(--radius);padding:24px 28px;display:flex;gap:22px;align-items:flex-start}
+.rulebox .tag{flex:none;font-size:11.5px;font-weight:700;letter-spacing:.08em;color:var(--accent);border:1px solid rgba(239,111,12,.35);border-radius:999px;padding:4px 12px;margin-top:3px;white-space:nowrap}
+.rulebox p{margin:0;font-size:16px;color:var(--navy-2);font-weight:500}
+.fambox{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:16px}
+.fambox div{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:20px 22px}
+.fambox h4{margin:0 0 6px;font-size:15px;color:var(--navy)}
+.fambox p{margin:0;font-size:13.5px;color:var(--muted)}
+.table-scroll{overflow-x:auto;border:1px solid var(--line);border-radius:var(--radius);background:#fff;box-shadow:var(--shadow)}
+table{border-collapse:collapse;width:100%;min-width:820px;font-size:14px}
+thead th{text-align:left;font-size:11.5px;letter-spacing:.07em;text-transform:uppercase;color:var(--muted);font-weight:700;padding:14px 18px;border-bottom:1px solid var(--line);background:#fbfcfe;white-space:nowrap}
+tbody td{padding:15px 18px;border-bottom:1px solid var(--line-soft);vertical-align:top;color:var(--ink)}
+tbody tr:last-child td{border-bottom:none}
+tbody tr:hover{background:#fcfdff}
+tbody td:first-child{font-weight:650;color:var(--navy)}
+tbody td:last-child{font-family:var(--mono);font-size:12.5px;color:var(--accent)}
+.tiles{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:14px}
+.tile{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:20px;transition:transform .2s cubic-bezier(.2,.7,.3,1),box-shadow .2s,border-color .2s;display:block}
+.tile:hover{transform:translateY(-3px);box-shadow:var(--shadow-lift);border-color:#d6dcea}
+.tile .tno{font-family:var(--mono);font-size:11.5px;font-weight:700;letter-spacing:.12em;color:var(--accent)}
+.tile h4{margin:6px 0 6px;font-size:16px;color:var(--navy);font-weight:750;letter-spacing:-.01em}
+.tile p{margin:0;font-size:13px;color:var(--muted)}
+.tile .cnt{margin-top:12px;font-size:11.5px;color:var(--muted);font-family:var(--mono)}
+.family-band{margin:60px 0 26px;border-top:1px solid var(--line);padding-top:24px;display:flex;align-items:baseline;gap:16px;flex-wrap:wrap}
+.family-band h2{margin:0;font-size:26px}
+.family-band span{font-size:13.5px;color:var(--muted)}
+.chips{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:8px}
+.chip{font-size:12.5px;padding:6px 14px;border-radius:999px;cursor:pointer;border:1px solid var(--line);background:#fff;color:var(--muted);transition:.16s;font-family:inherit;font-weight:600}
+.chip:hover{border-color:rgba(239,111,12,.45);color:var(--navy)}
+.chip.on{background:var(--navy);border-color:var(--navy);color:#fff}
+.subgroup{margin:36px 0 16px;display:flex;align-items:center;gap:12px}
+.subgroup h3{margin:0;font-size:16px;color:var(--navy);font-weight:750}
+.subgroup i{flex:1;height:1px;background:var(--line);display:block}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(316px,1fr));gap:16px}
+.card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:22px;display:flex;flex-direction:column;transition:transform .2s cubic-bezier(.2,.7,.3,1),box-shadow .2s,border-color .2s}
+.card:hover{transform:translateY(-3px);box-shadow:var(--shadow-lift);border-color:#d6dcea}
+.card-top{display:flex;align-items:center;gap:9px;margin-bottom:11px;flex-wrap:wrap}
+.badge{font-size:10.5px;font-weight:700;letter-spacing:.06em;padding:3px 9px;border-radius:999px;white-space:nowrap}
+.b-oss{background:var(--green-soft);color:var(--green)}
+.b-site{background:var(--blue-soft);color:#2f5fbf}
+.b-tool{background:var(--accent-soft);color:#c25a06}
+.b-org{background:var(--violet-soft);color:var(--violet)}
+.b-product{background:var(--rose-soft);color:var(--rose)}
+.stars{font-size:11.5px;color:var(--muted);font-family:var(--mono);margin-left:auto}
+.card h3{font-size:16.5px;line-height:1.35;margin:0 0 10px;color:var(--navy);font-weight:750;letter-spacing:-.01em}
+.card h3 a{border-bottom:1px solid transparent;transition:.16s}
+.card h3 a:hover{border-bottom-color:var(--accent);color:var(--accent)}
+.why{font-size:13.8px;color:var(--ink);margin:0 0 14px}
+.steal{margin-top:auto;font-size:13px;color:var(--muted);border-top:1px dashed var(--line);padding-top:13px}
+.steal b{color:var(--navy-2);font-weight:700}
+.treebox{background:var(--navy);border-radius:var(--radius);padding:26px 28px;color:#c8d4e8;font-family:var(--mono);font-size:13px;line-height:1.85;overflow-x:auto;position:relative}
+.treebox pre{margin:0;white-space:pre}
+.treebox .c{color:#7f93b3}
+.treebox .g{color:#7fd6b4}
+.treebox .k{color:#ffb26b}
+.copybtn{position:absolute;top:16px;right:16px;background:rgba(255,255,255,.1);color:#dbe6f7;border:1px solid rgba(255,255,255,.18);font-family:var(--font);font-size:11.5px;font-weight:600;padding:5px 12px;border-radius:999px;cursor:pointer;transition:.16s}
+.copybtn:hover{background:rgba(255,255,255,.2)}
+.notes{display:grid;gap:12px;margin-top:20px}
+.noterow{display:grid;grid-template-columns:minmax(200px,1fr) minmax(240px,1.7fr);gap:18px;align-items:center;background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:16px 22px;transition:.18s}
+.noterow:hover{border-color:#d6dcea;box-shadow:var(--shadow)}
+.noterow .f{font-family:var(--mono);font-size:12.5px;color:var(--navy);font-weight:600}
+.noterow .a{font-size:14px;color:var(--ink)}
+.noscript{background:var(--accent-soft);border:1px solid rgba(239,111,12,.3);border-radius:var(--radius);padding:16px 20px;font-size:14px;color:#8a4405;margin:20px 0}
+footer{border-top:1px solid var(--line);margin-top:36px;padding:36px 0 60px;font-size:13px;color:var(--muted)}
+footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+.rv{opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s cubic-bezier(.2,.7,.3,1)}
+.rv.in{opacity:1;transform:none}
+@media (max-width:820px){
+  section{padding:52px 0} header.hero{padding:70px 0 48px}
+  .rulebox{flex-direction:column;gap:12px}
+  .fambox{grid-template-columns:1fr}
+  .noterow{grid-template-columns:1fr;gap:6px}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.rv{opacity:1;transform:none;transition:none}.scroll-cue i{animation:none}}
+@media print{body::before,body::after,#progress,nav{display:none}.rv{opacity:1;transform:none}.card,.tile{break-inside:avoid;box-shadow:none}section{padding:24px 0}}
+</style>
+</head>
+<body>
+<div id="progress"></div>
+<noscript><div class="wrap"><div class="noscript">This page is rendered by JavaScript. Open it in Chrome or Edge, or read <b>references/cases.md</b>. 本页由脚本渲染，请用 Chrome / Edge 打开，或直接看 references/cases.md。</div></div></noscript>
+<nav><div class="nav-in" id="nav"></div></nav>
+<main id="root"></main>
+<footer><div class="wrap" id="foot"></div></footer>
+
+<script>
+const DATA = /*__DATA__*/;
+const LS_KEY = 'vp.lang';
+let lang = 'zh';
+try { const s = localStorage.getItem(LS_KEY); if (s === 'zh' || s === 'en') lang = s; } catch (e) {}
+
+const T = v => (v == null ? '' : (typeof v === 'string' ? v : (v[lang] || v.zh || '')));
+const esc = s => String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+
+const TYPE_LABEL = {
+  oss:     { zh: '开源', en: 'Open source', cls: 'b-oss' },
+  site:    { zh: '网站', en: 'Site', cls: 'b-site' },
+  tool:    { zh: '工具', en: 'Tool', cls: 'b-tool' },
+  org:     { zh: '机构', en: 'Studio', cls: 'b-org' },
+  product: { zh: '成品', en: 'Product', cls: 'b-product' }
+};
+
+const UI = {
+  brandTail: { zh: '素材库', en: 'Visual Playbook' },
+  navHow:    { zh: '怎么用', en: 'How to use' },
+  navPick:   { zh: '场合对照', en: 'By occasion' },
+  navMap:    { zh: '分类总览', en: 'Taxonomy' },
+  navRepo:   { zh: '仓库结构', en: 'Repository' },
+  eyebrow:   { zh: '视觉呈现素材库', en: 'Visual Playbook' },
+  h1a:       { zh: '把好的呈现方式，', en: 'Collect the ways of showing things' },
+  h1b:       { zh: '攒成自己的一套', en: 'into one' },
+  h1c:       { zh: '素材库', en: 'playbook' },
+  scrollCue: { zh: '往下滚，先看怎么挑', en: 'Scroll: start with how to choose' },
+  sec1:      { zh: '01 / 怎么用', en: '01 / How to use' },
+  sec1h:     { zh: '先定场合，再挑效果', en: 'Decide the occasion, then the effect' },
+  sec1p:     { zh: '效果没有绝对好坏，只有合不合场合。同一个动效，放在发布会上是亮点，放在早会看板上是干扰。',
+               en: 'No effect is good or bad in itself, only appropriate or not. The same animation is a highlight at a launch event and a distraction on a morning-meeting dashboard.' },
+  ruleTag:   { zh: '一句话原则', en: 'The short version' },
+  sec2:      { zh: '02 / 场合对照', en: '02 / By occasion' },
+  sec2h:     { zh: '什么场合，用什么效果', en: 'Which effect for which occasion' },
+  sec2p:     { zh: '左边是你要做的事，中间是做法，右边是可以少写代码的现成件。',
+               en: 'The task on the left, the approach in the middle, and the ready-made pieces that save you code on the right.' },
+  thWhat:    { zh: '场合', en: 'Occasion' },
+  thHow:     { zh: '推荐做法', en: 'Approach' },
+  thRef:     { zh: '参考对象', en: 'Reference' },
+  thTool:    { zh: '现成件', en: 'Ready-made' },
+  sec3:      { zh: '03 / 分类总览', en: '03 / Taxonomy' },
+  sec3h:     { zh: '八个分类，一眼看完', en: 'Eight categories at a glance' },
+  sec3p:     { zh: '做法七类按你要做什么排；参考一类是资料来源。点任意一格跳到那一节。',
+               en: 'The seven approach categories are ordered by what you are trying to do; the reference category is where material comes from. Click any tile to jump.' },
+  sec4:      { zh: '04 / 仓库结构', en: '04 / Repository' },
+  sec4h:     { zh: '这份库怎么放、怎么用', en: 'How this library is organised' },
+  sec4p:     { zh: '唯一数据源是 data/cases.json，页面和清单都由它生成。改内容只需改那一个文件，再跑一次构建。',
+               en: 'The single source of truth is data/cases.json. Both the page and the checklists are generated from it: edit that one file and run the build.' },
+  stealLabel:{ zh: '可以抄：', en: 'Copy: ' },
+  all:       { zh: '全部', en: 'All' },
+  entries:   { zh: '条目', en: 'entries' },
+  copy:      { zh: '复制', en: 'Copy' },
+  copied:    { zh: '已复制', en: 'Copied' }
+};
+
+const STAT_LABEL = {
+  cats:  { zh: '个分类（7 做法 + 1 参考）', en: 'categories (7 approach + 1 reference)' },
+  items: { zh: '个案例条目', en: 'entries' },
+  oss:   { zh: '个开源件，星数为实时数据', en: 'open-source pieces with live star counts' },
+  urls:  { zh: '个链接，逐个访问核对', en: 'links, each one opened and checked' }
+};
+
+const NOTE_ROWS = [
+  { f: { zh: 'data/cases.json', en: 'data/cases.json' },
+    a: { zh: '唯一数据源，中英双语。加一条案例就是加一个对象。', en: 'The single bilingual source. Adding a case means adding one object.' } },
+  { f: { zh: 'build/build.mjs', en: 'build/build.mjs' },
+    a: { zh: '把数据源生成 gallery/index.html 和 references 里的清单。', en: 'Generates gallery/index.html and the checklists under references/.' } },
+  { f: { zh: 'gallery/index.html', en: 'gallery/index.html' },
+    a: { zh: '生成物，自包含单文件，双击就能看，也可以直接发给同事。', en: 'A generated, self-contained single file. Double-click to open, or send it to a colleague.' } },
+  { f: { zh: 'references/', en: 'references/' },
+    a: { zh: '生成的纯文本清单，中文与英文各一份，方便搜索和引用。', en: 'Generated plain-text checklists, one per language, for searching and quoting.' } },
+  { f: { zh: 'tokens/', en: 'tokens/' },
+    a: { zh: '配色与字号变量。各项目共用一套，观感才会一致。', en: 'Colour and type tokens. Shared across projects, which is what keeps them looking related.' } },
+  { f: { zh: 'THIRD_PARTY.md', en: 'THIRD_PARTY.md' },
+    a: { zh: '抄来的组件与代码的出处和许可证，不能省。', en: 'Origin and licence for copied components and code. Do not skip it.' } }
+];
+
+function statCounts(){
+  const items = DATA.categories.flatMap(c => c.items);
+  const urls = new Set(items.map(i => i.url));
+  return {
+    cats: DATA.categories.length,
+    items: items.length,
+    oss: items.filter(i => i.type === 'oss').length,
+    urls: urls.size
+  };
+}
+
+function navHtml(){
+  let h = '<a class="brand" href="#top">Visual <span>' + esc(T(UI.brandTail)) + '</span></a>';
+  [['#how', UI.navHow], ['#pick', UI.navPick], ['#map', UI.navMap]].forEach(l => {
+    h += '<a class="link" href="' + l[0] + '">' + esc(T(l[1])) + '</a>';
+  });
+  DATA.categories.forEach(c => {
+    h += '<a class="link" href="#' + c.id + '">' + esc(T(c.name)) + '</a>';
+  });
+  h += '<a class="link" href="#repo">' + esc(T(UI.navRepo)) + '</a>';
+  h += '<div class="lang"><button data-lang="zh" class="' + (lang === 'zh' ? 'on' : '') + '">中文</button>' +
+       '<button data-lang="en" class="' + (lang === 'en' ? 'on' : '') + '">EN</button></div>';
+  return h;
+}
+
+function stat(n, label){
+  return '<div class="stat"><div class="n">' + n + '</div><div class="l">' + esc(T(label)) + '</div></div>';
+}
+
+function heroHtml(){
+  const s = statCounts();
+  return '<header class="hero" id="top"><div class="wrap">' +
+    '<span class="eyebrow">' + esc(T(UI.eyebrow)) + '</span>' +
+    '<h1>' + esc(T(UI.h1a)) + '<br>' + esc(T(UI.h1b)) + ' <em>' + esc(T(UI.h1c)) + '</em></h1>' +
+    '<p class="lede">' + esc(T(DATA.meta.intro)) + '</p>' +
+    '<div class="stat-row">' +
+      stat(s.cats, STAT_LABEL.cats) + stat(s.items, STAT_LABEL.items) +
+      stat(s.oss, STAT_LABEL.oss) + stat(s.urls, STAT_LABEL.urls) +
+    '</div>' +
+    '<div class="scroll-cue"><i></i>' + esc(T(UI.scrollCue)) + '</div>' +
+    '</div></header>';
+}
+
+function howHtml(){
+  const fams = DATA.families;
+  return '<section id="how"><div class="wrap">' +
+    '<div class="sec-head rv"><span class="sec-no">' + esc(T(UI.sec1)) + '</span>' +
+    '<h2>' + esc(T(UI.sec1h)) + '</h2><p>' + esc(T(UI.sec1p)) + '</p></div>' +
+    '<div class="rulebox rv"><div class="tag">' + esc(T(UI.ruleTag)) + '</div><p>' + esc(T(DATA.meta.rule)) + '</p></div>' +
+    '<div class="fambox rv">' +
+      '<div><h4>' + esc(T(fams.approach.name)) + '</h4><p>' + esc(T(fams.approach.desc)) + '</p></div>' +
+      '<div><h4>' + esc(T(fams.reference.name)) + '</h4><p>' + esc(T(fams.reference.desc)) + '</p></div>' +
+    '</div></div></section>';
+}
+
+function pickHtml(){
+  let rows = '';
+  DATA.occasions.forEach(o => {
+    rows += '<tr><td>' + esc(T(o.what)) + '</td><td>' + esc(T(o.how)) + '</td><td>' + esc(T(o.ref)) + '</td><td>' + esc(o.tools) + '</td></tr>';
+  });
+  return '<section id="pick" class="tight"><div class="wrap">' +
+    '<div class="sec-head rv"><span class="sec-no">' + esc(T(UI.sec2)) + '</span>' +
+    '<h2>' + esc(T(UI.sec2h)) + '</h2><p>' + esc(T(UI.sec2p)) + '</p></div>' +
+    '<div class="table-scroll rv"><table><thead><tr>' +
+      '<th>' + esc(T(UI.thWhat)) + '</th><th>' + esc(T(UI.thHow)) + '</th><th>' + esc(T(UI.thRef)) + '</th><th>' + esc(T(UI.thTool)) + '</th>' +
+    '</tr></thead><tbody>' + rows + '</tbody></table></div>' +
+    '</div></section>';
+}
+
+function mapHtml(){
+  let tiles = '';
+  DATA.categories.forEach(c => {
+    tiles += '<a class="tile rv" href="#' + c.id + '">' +
+      '<span class="tno">' + esc(c.no) + ' &middot; ' + esc(T(DATA.families[c.family].name)) + '</span>' +
+      '<h4>' + esc(T(c.name)) + '</h4><p>' + esc(T(c.desc)) + '</p>' +
+      '<div class="cnt">' + c.items.length + ' ' + esc(T(UI.entries)) + '</div></a>';
+  });
+  return '<section id="map" class="tight"><div class="wrap">' +
+    '<div class="sec-head rv"><span class="sec-no">' + esc(T(UI.sec3)) + '</span>' +
+    '<h2>' + esc(T(UI.sec3h)) + '</h2><p>' + esc(T(UI.sec3p)) + '</p></div>' +
+    '<div class="tiles">' + tiles + '</div>' +
+    '</div></section>';
+}
+
+function cardHtml(it){
+  const ty = TYPE_LABEL[it.type] || TYPE_LABEL.site;
+  return '<article class="card rv" data-cat="' + it._cat + '">' +
+    '<div class="card-top"><span class="badge ' + ty.cls + '">' + esc(T(ty)) + '</span>' +
+    (it.stars ? '<span class="stars">' + esc(it.stars) + '</span>' : '') + '</div>' +
+    '<h3><a href="' + esc(it.url) + '" target="_blank" rel="noopener">' + esc(it.name) + ' &#8599;</a></h3>' +
+    '<p class="why">' + esc(T(it.why)) + '</p>' +
+    '<div class="steal"><b>' + esc(T(UI.stealLabel)) + '</b>' + esc(T(it.steal)) + '</div></article>';
+}
+
+function libraryHtml(){
+  const byFam = { approach: [], reference: [] };
+  DATA.categories.forEach(c => byFam[c.family].push(c));
+
+  let h = '<section id="library" class="tight"><div class="wrap">' +
+    '<div class="chips" id="chips">' +
+    '<button class="chip on" data-filter="all">' + esc(T(UI.all)) + '</button>' +
+    DATA.categories.map(c => '<button class="chip" data-filter="' + c.id + '">' + esc(c.no) + ' ' + esc(T(c.name)) + '</button>').join('') +
+    '</div></div></section>';
+
+  ['approach', 'reference'].forEach(fam => {
+    const f = DATA.families[fam];
+    h += '<section class="tight"><div class="wrap">' +
+      '<div class="family-band rv"><h2>' + esc(T(f.name)) + '</h2><span>' + esc(T(f.desc)) + '</span></div>';
+    byFam[fam].forEach(c => {
+      h += '<div data-cat="' + c.id + '">' +
+        '<div class="sec-head rv"><span class="sec-no">' + esc(c.no) + '</span>' +
+        '<h2>' + esc(T(c.name)) + '</h2><p>' + esc(T(c.desc)) + '</p></div>';
+      if (c.subs && c.subs.length){
+        c.subs.forEach(sb => {
+          const items = c.items.filter(i => i.sub === sb.id);
+          if (!items.length) return;
+          h += '<div class="subgroup rv"><h3>' + esc(T(sb.name)) + '</h3><i></i></div>' +
+               '<div class="grid">' + items.map(cardHtml).join('') + '</div>';
+        });
+      } else {
+        h += '<div class="grid">' + c.items.map(cardHtml).join('') + '</div>';
+      }
+      h += '</div>';
+    });
+    h += '</div></section>';
+  });
+  return h;
+}
+
+function treeText(){
+  const rows = [
+    ['visual-playbook/', ''],
+    ['├─ README.md', '# 中文说明 / Chinese guide'],
+    ['├─ README.en.md', '# English guide'],
+    ['├─ data/cases.json', '# 唯一数据源，中英双语 / single source, bilingual'],
+    ['├─ build/', ''],
+    ['│   ├─ template.html', '# 页面模板 / page template'],
+    ['│   └─ build.mjs', '# 生成脚本 / generator'],
+    ['├─ gallery/index.html', '# 生成物：双语画廊 / generated gallery'],
+    ['├─ references/', ''],
+    ['│   ├─ cases.md', '# 中文清单 / Chinese checklist'],
+    ['│   └─ cases.en.md', '# English checklist'],
+    ['├─ docs/', '# 仓库建议与用法 / setup notes'],
+    ['├─ tokens/', '# 配色与字号变量 / colour and type tokens'],
+    ['├─ THIRD_PARTY.md', '# 抄来的代码出处与许可证 / licences'],
+    ['└─ CHANGELOG.md', '']
+  ];
+  const pad = Math.max.apply(null, rows.map(r => r[0].length)) + 2;
+  return rows.map(r => r[0] + ' '.repeat(pad - r[0].length) + (r[1] ? '<span class="c">' + esc(r[1]) + '</span>' : '')).join('\n');
+}
+
+function repoHtml(){
+  let notes = '';
+  NOTE_ROWS.forEach(r => {
+    notes += '<div class="noterow rv"><div class="f">' + esc(T(r.f)) + '</div><div class="a">' + esc(T(r.a)) + '</div></div>';
+  });
+  return '<section id="repo"><div class="wrap">' +
+    '<div class="sec-head rv"><span class="sec-no">' + esc(T(UI.sec4)) + '</span>' +
+    '<h2>' + esc(T(UI.sec4h)) + '</h2><p>' + esc(T(UI.sec4p)) + '</p></div>' +
+    '<div class="treebox rv"><button class="copybtn" id="copyTree">' + esc(T(UI.copy)) + '</button><pre id="treeText">' + treeText() + '</pre></div>' +
+    '<div class="notes">' + notes + '</div>' +
+    '</div></section>';
+}
+
+function footHtml(){
+  return '<div>Visual Playbook &middot; ' + esc(DATA.meta.date) + '</div>' +
+         '<div>' + esc(T({ zh: '星数为 GitHub 实时数据；被网站拦截自动访问的链接在浏览器里正常可开。',
+                             en: 'Star counts are live GitHub data; links that block automated requests open normally in a browser.' })) + '</div>';
+}
+
+function render(){
+  document.documentElement.lang = lang === 'zh' ? 'zh-CN' : 'en';
+  document.title = lang === 'zh' ? '视觉呈现素材库 · Visual Playbook' : 'Visual Playbook · 视觉呈现素材库';
+  DATA.categories.forEach(c => c.items.forEach(i => { i._cat = c.id; }));
+  document.getElementById('nav').innerHTML = navHtml();
+  document.getElementById('root').innerHTML = heroHtml() + howHtml() + pickHtml() + mapHtml() + libraryHtml() + repoHtml();
+  document.getElementById('foot').innerHTML = footHtml();
+  bind();
+}
+
+function reveal(){
+  if (!('IntersectionObserver' in window)){
+    document.querySelectorAll('.rv').forEach(e => e.classList.add('in'));
+    return;
+  }
+  const io = new IntersectionObserver(es => {
+    es.forEach(e => { if (e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, { rootMargin: '0px 0px -8% 0px', threshold: .08 });
+  document.querySelectorAll('.rv').forEach((el, i) => {
+    el.style.transitionDelay = ((i % 4) * 55) + 'ms';
+    io.observe(el);
+  });
+}
+
+function scrollFx(){
+  const bar = document.getElementById('progress');
+  const links = [...document.querySelectorAll('.nav-in a.link')];
+  const ids = links.map(a => a.getAttribute('href').slice(1));
+  const nav = document.querySelector('nav');
+  function onScroll(){
+    const h = document.documentElement.scrollHeight - innerHeight;
+    bar.style.width = (h > 0 ? (scrollY / h * 100) : 0) + '%';
+    let on = null;
+    ids.forEach(id => { const el = document.getElementById(id); if (el && el.getBoundingClientRect().top <= 130) on = id; });
+    links.forEach(a => a.classList.toggle('on', a.getAttribute('href') === '#' + on));
+    nav.style.boxShadow = window.scrollY > 8 ? '0 6px 20px rgba(15,29,51,.06)' : 'none';
+  }
+  addEventListener('scroll', onScroll, { passive: true });
+  addEventListener('resize', onScroll);
+  onScroll();
+}
+
+function bind(){
+  document.querySelectorAll('.lang button').forEach(b => {
+    b.addEventListener('click', () => {
+      const next = b.dataset.lang;
+      if (next === lang) return;
+      lang = next;
+      try { localStorage.setItem(LS_KEY, lang); } catch (e) {}
+      render();
+    });
+  });
+
+  const chips = document.getElementById('chips');
+  chips.addEventListener('click', e => {
+    const b = e.target.closest('.chip'); if (!b) return;
+    const f = b.dataset.filter;
+    chips.querySelectorAll('.chip').forEach(c => c.classList.toggle('on', c === b));
+    document.querySelectorAll('[data-cat]').forEach(el => {
+      if (el.classList.contains('chip')) return;
+      el.style.display = (f === 'all' || el.dataset.cat === f) ? '' : 'none';
+    });
+  });
+
+  const btn = document.getElementById('copyTree');
+  if (btn) btn.addEventListener('click', async () => {
+    const text = document.getElementById('treeText').innerText;
+    try { await navigator.clipboard.writeText(text); }
+    catch (err) {
+      const ta = document.createElement('textarea');
+      ta.value = text; document.body.appendChild(ta); ta.select();
+      document.execCommand('copy'); ta.remove();
+    }
+    btn.textContent = T(UI.copied);
+    setTimeout(() => { btn.textContent = T(UI.copy); }, 1600);
+  });
+
+  reveal();
+  scrollFx();
+}
+
+render();
+</script>
+</body>
+</html>

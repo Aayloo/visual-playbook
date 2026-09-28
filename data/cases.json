@@ -1,0 +1,1674 @@
+{
+  "meta": {
+    "date": "2026-09-28",
+    "title": { "zh": "视觉呈现素材库", "en": "Visual Playbook" },
+    "tagline": {
+      "zh": "汇报、展示、看板、路演的效果参考",
+      "en": "Reference library for reporting, demos, dashboards and roadshows"
+    },
+    "intro": {
+      "zh": "这里收的不是好看的截图，而是做法。每个案例都写清楚它好在哪、能直接抄什么、有没有现成的开源件。",
+      "en": "Not screenshots — methods. Every entry says what makes it good, what to copy, and whether there is a ready-made open-source piece."
+    },
+    "rule": {
+      "zh": "看板用图表引擎，复盘用滚动叙事，演示用左右分栏，正式场合用幻灯片。四类不要混在一页里。",
+      "en": "Dashboards use chart engines, reviews use scroll narratives, demos use side-by-side panels, formal occasions use slides. Never mix all four on one page."
+    }
+  },
+  "families": {
+    "approach": {
+      "name": { "zh": "做法", "en": "Approach" },
+      "desc": {
+        "zh": "七种可以直接用的手段。每一项都是一种效果。",
+        "en": "Seven techniques you can use directly. Each one is a specific effect."
+      }
+    },
+    "reference": {
+      "name": { "zh": "参考", "en": "Reference" },
+      "desc": {
+        "zh": "用来找东西的地方，本身不是做法。灵感榜、界面库、行业来源都在这里。",
+        "en": "Places to go looking. Not techniques in themselves: galleries, UI libraries and industry sources."
+      }
+    }
+  },
+  "occasions": [
+    {
+      "what": { "zh": "早会 / 周会动态看板", "en": "Daily or weekly dashboard" },
+      "how": {
+        "zh": "单文件 HTML 加图表引擎；数据每周换，版式不动。",
+        "en": "One self-contained HTML file plus a chart engine; data changes weekly, layout does not."
+      },
+      "ref": { "zh": "FT 视觉新闻 · Reuters Graphics", "en": "FT Visual Journalism · Reuters Graphics" },
+      "tools": "ECharts · Tremor"
+    },
+    {
+      "what": { "zh": "项目 / 系统汇报", "en": "Project or system walkthrough" },
+      "how": {
+        "zh": "滚动叙事长页：画布钉住，滚到哪一步就揭示哪一步。",
+        "en": "A scroll narrative: pin the canvas and reveal one step per scroll."
+      },
+      "ref": { "zh": "Apple 产品页 · Basement Studio", "en": "Apple product pages · Basement Studio" },
+      "tools": "scrollytelling · Scrollama"
+    },
+    {
+      "what": { "zh": "产品 / App 演示", "en": "Product or app demo" },
+      "how": {
+        "zh": "左右分栏：一边界面、一边代码，逐步高亮。",
+        "en": "Two columns: interface on one side, code on the other, highlighted step by step."
+      },
+      "ref": { "zh": "Expo Snack · Apple SwiftUI 教程", "en": "Expo Snack · Apple SwiftUI tutorials" },
+      "tools": "Sandpack · CodeHike"
+    },
+    {
+      "what": { "zh": "领导要「点着看」的原型", "en": "A prototype the audience clicks through" },
+      "how": {
+        "zh": "做成交互式数据应用，不打包、发个链接就能用。",
+        "en": "Build an interactive data app: no packaging, one link and it runs."
+      },
+      "ref": { "zh": "Observable Framework", "en": "Observable Framework" },
+      "tools": "Streamlit · Dash"
+    },
+    {
+      "what": { "zh": "对外报告 / 路演长页", "en": "External report or roadshow page" },
+      "how": {
+        "zh": "可交互年报式排版，图文跟随滚动。",
+        "en": "Annual-report layout with interaction, images and text following the scroll."
+      },
+      "ref": { "zh": "Shorthand · FT ig", "en": "Shorthand · FT ig" },
+      "tools": "Quarto · Observable Framework"
+    },
+    {
+      "what": { "zh": "正式会议 / 评审", "en": "Formal meeting or review" },
+      "how": {
+        "zh": "用 Markdown 写幻灯片，动效克制。",
+        "en": "Slides written in Markdown, with restrained motion."
+      },
+      "ref": { "zh": "Apple Keynote 的节奏", "en": "The pacing of an Apple keynote" },
+      "tools": "Slidev · Marp"
+    },
+    {
+      "what": { "zh": "净值 / 回撤曲线", "en": "NAV and drawdown curves" },
+      "how": {
+        "zh": "金融专用图表，交互对齐交易软件。",
+        "en": "Finance-specific charts with interaction matching trading software."
+      },
+      "ref": { "zh": "TradingView · Koyfin", "en": "TradingView · Koyfin" },
+      "tools": "Lightweight Charts"
+    },
+    {
+      "what": { "zh": "界面观感想上一个台阶", "en": "Lifting the look of the interface" },
+      "how": {
+        "zh": "换掉组件底座，把配色和字号收敛成一套变量。",
+        "en": "Swap the component base and consolidate colour and type into one set of tokens."
+      },
+      "ref": { "zh": "shadcn/ui · Linear", "en": "shadcn/ui · Linear" },
+      "tools": "Tailwind tokens · MagicUI"
+    }
+  ],
+  "categories": [
+    {
+      "id": "narrate",
+      "no": "01",
+      "family": "approach",
+      "name": { "zh": "讲一个故事", "en": "Tell the story" },
+      "desc": {
+        "zh": "把一个流程或一个系统，用滚动一屏一屏讲清楚。适合项目复盘、系统汇报。",
+        "en": "Walk through a process or a system one screen at a time as the reader scrolls. For project reviews and system walkthroughs."
+      },
+      "items": [
+        {
+          "name": "Basement Studio · scrollytelling",
+          "url": "https://github.com/basementstudio/scrollytelling",
+          "type": "oss",
+          "stars": "★1,665",
+          "why": {
+            "zh": "把长页面切成一个个场景，滚动驱动切换，这个团队的官网用的就是同一套引擎。",
+            "en": "Splits a long page into scenes and drives the switch with scroll. The studio's own site runs on this same engine."
+          },
+          "steal": {
+            "zh": "场景怎么切分、固定画布加进度指示",
+            "en": "How scenes are carved up; pinned canvas plus progress indicator"
+          }
+        },
+        {
+          "name": "CodeHike",
+          "url": "https://github.com/code-hike/codehike",
+          "type": "oss",
+          "stars": "★5,385",
+          "why": {
+            "zh": "代码逐行讲解、逐行高亮的引擎。要边讲边演示代码，这是最省力的一条路。",
+            "en": "An engine for line-by-line code walkthroughs and highlights. The least effort way to explain code as you present it."
+          },
+          "steal": {
+            "zh": "行内注释、高亮、分步骤推进的组合",
+            "en": "Inline annotations, highlights and step-by-step advance"
+          }
+        },
+        {
+          "name": "React Scrollama",
+          "url": "https://github.com/squirrelsquirrel78/react-scrollama",
+          "type": "oss",
+          "stars": "★405",
+          "why": {
+            "zh": "把「滚到第几步」变成状态变量的轻量库，做分步揭示最省事。",
+            "en": "Turns 'which step are we on' into a state variable. The easiest way to build step-by-step reveals."
+          },
+          "steal": {
+            "zh": "滚动位置到步骤的映射写法",
+            "en": "Mapping scroll position to a step index"
+          }
+        },
+        {
+          "name": "Closeread（Quarto 扩展）",
+          "url": "https://github.com/qmd-lab/closeread",
+          "type": "oss",
+          "stars": "★236",
+          "why": {
+            "zh": "在 Quarto 里写滚动叙事的扩展，报告和网页可以共用一份源文件。",
+            "en": "A Quarto extension for scroll narratives, so the report and the web page share one source file."
+          },
+          "steal": {
+            "zh": "一份 Markdown 同时产出报告和网页",
+            "en": "One Markdown file producing both report and site"
+          }
+        },
+        {
+          "name": "Apple AirPods Pro",
+          "url": "https://www.apple.com/airpods-pro/",
+          "type": "product",
+          "why": {
+            "zh": "滚动一句一个画面，图随滚动放大缩小，把发布会的节奏搬到了网页上。",
+            "en": "One sentence per screen; images scale as you scroll. Launch-event pacing, moved onto the web."
+          },
+          "steal": {
+            "zh": "首屏文案的结构、逐句替换的排版",
+            "en": "The hero copy structure; sentence-by-sentence replacement"
+          }
+        },
+        {
+          "name": "Apple Vision Pro",
+          "url": "https://www.apple.com/vision-pro/",
+          "type": "product",
+          "why": {
+            "zh": "极简底色、大留白、克制的动效，最能体现「贵」的一种做法。",
+            "en": "Minimal ground, generous whitespace, restrained motion. The clearest way to signal production value."
+          },
+          "steal": {
+            "zh": "留白比例与字体层级",
+            "en": "Whitespace ratio and type hierarchy"
+          }
+        },
+        {
+          "name": "Linear",
+          "url": "https://linear.app",
+          "type": "product",
+          "why": {
+            "zh": "深色、大字、动效克制，是产品感最强的一类官网。",
+            "en": "Dark, large type, restrained motion. The strongest example of product-feel on a marketing site."
+          },
+          "steal": {
+            "zh": "首屏三行文案怎么写、快捷键演示动画",
+            "en": "How to write a three-line hero; how to animate a keyboard shortcut"
+          }
+        },
+        {
+          "name": "Vercel",
+          "url": "https://vercel.com",
+          "type": "product",
+          "why": {
+            "zh": "技术产品的官网范式，把抽象的东西画成一眼看懂的图。",
+            "en": "A template for technical product sites: abstract concepts drawn as diagrams you get at a glance."
+          },
+          "steal": {
+            "zh": "用示意图讲架构，而不是用文字堆",
+            "en": "Explaining architecture with diagrams instead of paragraphs"
+          }
+        },
+        {
+          "name": "Stripe",
+          "url": "https://stripe.com",
+          "type": "product",
+          "why": {
+            "zh": "长期被当作企业官网的设计标杆，信息密度高但不乱。",
+            "en": "A long-standing benchmark for corporate sites: high information density without the mess."
+          },
+          "steal": {
+            "zh": "分栏节奏、产品截图的呈现方式",
+            "en": "Column rhythm; how product screenshots are framed"
+          }
+        }
+      ]
+    },
+    {
+      "id": "demo",
+      "no": "02",
+      "family": "approach",
+      "name": { "zh": "演示一个产品", "en": "Demo the product" },
+      "desc": {
+        "zh": "左边界面、右边代码，改一行看一行。做产品演示、技术分享时最直观。",
+        "en": "Interface on one side, code on the other, change a line and watch it land. The clearest format for product and technical demos."
+      },
+      "items": [
+        {
+          "name": "Expo Snack",
+          "url": "https://snack.expo.dev",
+          "type": "tool",
+          "stars": "★510",
+          "why": {
+            "zh": "左边写代码，右边手机里实时跑起来。最接近「左边手机、右边敲代码」这个画面的现成工具。",
+            "en": "Code on the left, a live phone running it on the right. The closest off-the-shelf match to the split-screen demo you described."
+          },
+          "steal": {
+            "zh": "直接当演示台用，改一行看一行",
+            "en": "Use it as the demo stage; change a line, show the result"
+          }
+        },
+        {
+          "name": "Sandpack",
+          "url": "https://github.com/codesandbox/sandpack",
+          "type": "oss",
+          "stars": "★6,246",
+          "why": {
+            "zh": "把「代码加实时预览」嵌进你自己任何网页里。",
+            "en": "Embeds code plus live preview into any page you already own."
+          },
+          "steal": {
+            "zh": "嵌进内部文档，做成可交互的说明页",
+            "en": "Embed in internal docs to make an interactive explainer"
+          }
+        },
+        {
+          "name": "StackBlitz · WebContainer",
+          "url": "https://github.com/stackblitz/webcontainer-core",
+          "type": "oss",
+          "stars": "★4,644",
+          "why": {
+            "zh": "在浏览器里跑完整前端工程，连依赖安装都不用配。",
+            "en": "Runs a full front-end project in the browser, no dependency setup needed."
+          },
+          "steal": {
+            "zh": "发一个链接就能演示，不配环境",
+            "en": "Share one link and demo, with no environment setup"
+          }
+        },
+        {
+          "name": "Apple SwiftUI 教程",
+          "url": "https://developer.apple.com/tutorials/swiftui",
+          "type": "product",
+          "why": {
+            "zh": "左边代码、右边实时预览、分步骤高亮，这类演示的教科书。",
+            "en": "Code left, live preview right, step-by-step highlighting. The textbook version of this format."
+          },
+          "steal": {
+            "zh": "步骤导航和当前步骤高亮的交互",
+            "en": "Step navigation and current-step highlighting"
+          }
+        },
+        {
+          "name": "Tailwind Play",
+          "url": "https://play.tailwindcss.com",
+          "type": "tool",
+          "why": {
+            "zh": "改样式即时看到结果，现场调界面最快的方式。",
+            "en": "Change a style and see it immediately. The fastest way to adjust a layout live."
+          },
+          "steal": {
+            "zh": "开会时当场改给领导看",
+            "en": "Editing the design live in a meeting"
+          }
+        }
+      ]
+    },
+    {
+      "id": "dashboard",
+      "no": "03",
+      "family": "approach",
+      "name": { "zh": "看一组数据", "en": "Read the numbers" },
+      "desc": {
+        "zh": "每周或每天更新的那一类，重点是数据换、版式不动，所以模板化比好看更重要。",
+        "en": "For weekly or daily refreshes the priority is that data changes while the layout does not. Templating matters more than looks."
+      },
+      "items": [
+        {
+          "name": "Apache Superset",
+          "url": "https://github.com/apache/superset",
+          "type": "oss",
+          "stars": "★74,944",
+          "why": {
+            "zh": "成熟的开源看板平台，接上数据库就能出图，不用自己写前端。",
+            "en": "A mature open-source dashboard platform: connect a database and chart, with no front-end work."
+          },
+          "steal": {
+            "zh": "图表组合、筛选器布局、权限思路",
+            "en": "Chart sets, filter layout, permission model"
+          }
+        },
+        {
+          "name": "Grafana",
+          "url": "https://github.com/grafana/grafana",
+          "type": "oss",
+          "stars": "★76,963",
+          "why": {
+            "zh": "监控场景最强，实时刷新和阈值告警的看板做得最顺。",
+            "en": "Strongest for monitoring: live refresh and threshold alerts are the smoothest here."
+          },
+          "steal": {
+            "zh": "自动刷新、阈值变色的呈现方式",
+            "en": "Presenting auto-refresh and threshold colouring"
+          }
+        },
+        {
+          "name": "Metabase",
+          "url": "https://github.com/metabase/metabase",
+          "type": "oss",
+          "stars": "★49,440",
+          "why": {
+            "zh": "非技术同事也能自己拖出图的 BI 工具。",
+            "en": "A BI tool non-technical colleagues can drag a chart out of themselves."
+          },
+          "steal": {
+            "zh": "让同事自助取数的组织方式",
+            "en": "Organising self-service access for colleagues"
+          }
+        },
+        {
+          "name": "Redash",
+          "url": "https://github.com/getredash/redash",
+          "type": "oss",
+          "stars": "★28,817",
+          "why": {
+            "zh": "写 SQL 直接出图，最适合数据人自己快速搭一版。",
+            "en": "Write SQL, get charts. Best for a quick self-built version by whoever holds the data."
+          },
+          "steal": {
+            "zh": "查询与图表的绑定方式",
+            "en": "How queries bind to charts"
+          }
+        },
+        {
+          "name": "Lightdash",
+          "url": "https://github.com/lightdash/lightdash",
+          "type": "oss",
+          "stars": "★6,166",
+          "why": {
+            "zh": "建在 dbt 上的看板，指标定义和看板同源，不容易出现两套口径。",
+            "en": "Dashboards built on dbt, so metric definitions and charts share one source of truth."
+          },
+          "steal": {
+            "zh": "指标口径统一的做法",
+            "en": "Keeping metric definitions consistent"
+          }
+        },
+        {
+          "name": "Evidence",
+          "url": "https://github.com/evidence-dev/evidence",
+          "type": "oss",
+          "stars": "★6,962",
+          "why": {
+            "zh": "写 Markdown 加 SQL 就直接生成看板，最适合每周更新的汇报。",
+            "en": "Markdown plus SQL produces the dashboard. The best fit for a weekly-updated report."
+          },
+          "steal": {
+            "zh": "把周报写成模板，数据换文件不换版式",
+            "en": "Turning the weekly report into a template: swap data, keep the layout"
+          }
+        },
+        {
+          "name": "Observable Framework",
+          "url": "https://github.com/observablehq/framework",
+          "type": "oss",
+          "stars": "★3,650",
+          "why": {
+            "zh": "用 Markdown 生成数据报告和数据应用，可以导出成静态页面。",
+            "en": "Markdown generates data reports and data apps, exportable as static pages."
+          },
+          "steal": {
+            "zh": "对外报告、可交互专题",
+            "en": "External reports and interactive features"
+          }
+        },
+        {
+          "name": "Streamlit",
+          "url": "https://github.com/streamlit/streamlit",
+          "type": "oss",
+          "stars": "★45,845",
+          "why": {
+            "zh": "半天就能做出「能点」的演示应用，参数一改图表跟着变。",
+            "en": "Half a day gets you a clickable demo app where charts follow the parameters."
+          },
+          "steal": {
+            "zh": "给领导试参数的那种演示",
+            "en": "Demos where the audience tries the parameters"
+          }
+        },
+        {
+          "name": "Plotly Dash",
+          "url": "https://github.com/plotly/dash",
+          "type": "oss",
+          "stars": "★24,438",
+          "why": {
+            "zh": "交互式数据应用框架，联动筛选做得比 Streamlit 更细。",
+            "en": "An interactive data app framework with finer cross-filtering than Streamlit."
+          },
+          "steal": {
+            "zh": "多图联动的写法",
+            "en": "Wiring several charts to each other"
+          }
+        },
+        {
+          "name": "Quarto",
+          "url": "https://github.com/quarto-dev/quarto-cli",
+          "type": "oss",
+          "stars": "★6,023",
+          "why": {
+            "zh": "一份源码同时出报告、网页、幻灯片和 PDF。",
+            "en": "One source produces the report, the site, the slides and the PDF."
+          },
+          "steal": {
+            "zh": "汇报材料多形态统一输出",
+            "en": "One report in several output formats"
+          }
+        }
+      ]
+    },
+    {
+      "id": "chart",
+      "no": "04",
+      "family": "approach",
+      "name": { "zh": "画一张图", "en": "Draw the chart" },
+      "desc": {
+        "zh": "图表引擎本身。选一个主力就够，换来换去只会让几份材料长得不像同一套。",
+        "en": "The chart engines themselves. Pick one as the workhorse; switching between them makes your material look unrelated."
+      },
+      "items": [
+        {
+          "name": "Apache ECharts",
+          "url": "https://github.com/apache/echarts",
+          "type": "oss",
+          "stars": "★67,405",
+          "why": {
+            "zh": "国内最稳的图表引擎，中文排版和交互都最省心，升级现有看板的首选。",
+            "en": "The most dependable engine for Chinese-language charts, and the first choice for upgrading an existing dashboard."
+          },
+          "steal": {
+            "zh": "主题配色、tooltip 与图例的中文排版",
+            "en": "Theme palettes; Chinese typography in tooltips and legends"
+          }
+        },
+        {
+          "name": "D3",
+          "url": "https://github.com/d3/d3",
+          "type": "oss",
+          "stars": "★113,774",
+          "why": {
+            "zh": "自由度最高的可视化底层，别人做不出来的图靠它。",
+            "en": "The most flexible visualisation layer, for charts nobody else can produce."
+          },
+          "steal": {
+            "zh": "需要非常规图表时再上，学习成本高",
+            "en": "Reach for it only for unusual charts; the learning curve is steep"
+          }
+        },
+        {
+          "name": "Recharts",
+          "url": "https://github.com/recharts/recharts",
+          "type": "oss",
+          "stars": "★27,595",
+          "why": {
+            "zh": "配 React 最顺手的图表库，组件化写法，改起来快。",
+            "en": "The smoothest chart library for React: component-shaped, quick to adjust."
+          },
+          "steal": {
+            "zh": "把图表当普通组件拼装",
+            "en": "Treating charts as ordinary components"
+          }
+        },
+        {
+          "name": "Plotly.js",
+          "url": "https://github.com/plotly/plotly.js",
+          "type": "oss",
+          "stars": "★18,348",
+          "why": {
+            "zh": "科学计算类图表最全，三维和统计图不用另找库。",
+            "en": "The most complete for scientific charts; 3D and statistical plots included."
+          },
+          "steal": {
+            "zh": "统计分布类图表的画法",
+            "en": "Statistical and distribution charts"
+          }
+        },
+        {
+          "name": "Highcharts",
+          "url": "https://github.com/highcharts/highcharts",
+          "type": "oss",
+          "stars": "★12,493",
+          "why": {
+            "zh": "金融与商业报告里的老牌选择，图表交互打磨得很细。",
+            "en": "A long-standing choice for financial and business reports, with finely polished interaction."
+          },
+          "steal": {
+            "zh": "图表内的交互与导出功能",
+            "en": "In-chart interaction and export features"
+          }
+        },
+        {
+          "name": "AntV G2",
+          "url": "https://github.com/antvis/G2",
+          "type": "oss",
+          "stars": "★12,621",
+          "why": {
+            "zh": "蚂蚁的可视化语法，做叙事型图表和看板都合适。",
+            "en": "Ant Group's grammar of graphics, good for both narrative charts and dashboards."
+          },
+          "steal": {
+            "zh": "图表分层与标注的写法",
+            "en": "Layering and annotation in charts"
+          }
+        },
+        {
+          "name": "Vega-Lite",
+          "url": "https://github.com/vega/vega-lite",
+          "type": "oss",
+          "stars": "★5,497",
+          "why": {
+            "zh": "用一段 JSON 描述图表，不改代码就能换图，适合批量出图。",
+            "en": "Describe a chart in JSON and swap it without touching code. Good for generating charts in bulk."
+          },
+          "steal": {
+            "zh": "图表配置与数据分离",
+            "en": "Separating chart config from data"
+          }
+        },
+        {
+          "name": "Observable Plot",
+          "url": "https://github.com/observablehq/plot",
+          "type": "oss",
+          "stars": "★5,390",
+          "why": {
+            "zh": "几行代码出一张讲究的图，默认样式就很像出版物。",
+            "en": "A polished chart in a few lines; the defaults already look like print."
+          },
+          "steal": {
+            "zh": "默认样式与留白，直接拿来当基准",
+            "en": "Default styling and whitespace as a baseline"
+          }
+        },
+        {
+          "name": "Chart.js",
+          "url": "https://www.chartjs.org",
+          "type": "oss",
+          "why": {
+            "zh": "最轻便的入门库，常规折线柱状饼图几分钟就能上。",
+            "en": "The lightest starting point: ordinary line, bar and pie charts in minutes."
+          },
+          "steal": {
+            "zh": "简单图表不要过度设计",
+            "en": "Not over-designing simple charts"
+          }
+        },
+        {
+          "name": "TradingView Lightweight Charts",
+          "url": "https://github.com/tradingview/lightweight-charts",
+          "type": "oss",
+          "stars": "★17,373",
+          "why": {
+            "zh": "TradingView 出的金融图表，K 线、净值曲线、回撤区间专用。",
+            "en": "TradingView's finance charts, built for candlesticks, NAV curves and drawdown bands."
+          },
+          "steal": {
+            "zh": "组合净值走势、回撤区间标注",
+            "en": "NAV curves and drawdown band annotations"
+          }
+        },
+        {
+          "name": "Tremor",
+          "url": "https://github.com/tremorlabs/tremor",
+          "type": "oss",
+          "stars": "★3,639",
+          "why": {
+            "zh": "专做看板卡片的组件库，指标加迷你趋势图的组合很舒服。",
+            "en": "Components made for dashboard cards; the metric-plus-sparkline pairing reads well."
+          },
+          "steal": {
+            "zh": "指标卡片的风格与信息密度",
+            "en": "Metric card style and information density"
+          }
+        },
+        {
+          "name": "VisActor · VChart",
+          "url": "https://www.visactor.io",
+          "type": "tool",
+          "why": {
+            "zh": "国产可视化套件，叙事型图表和看板都有现成件。",
+            "en": "A Chinese visualisation suite with ready-made narrative charts and dashboards."
+          },
+          "steal": {
+            "zh": "滚动叙事的图表写法",
+            "en": "Charts that work inside a scroll narrative"
+          }
+        }
+      ]
+    },
+    {
+      "id": "deck",
+      "no": "05",
+      "family": "approach",
+      "name": { "zh": "上一次讲台", "en": "Take the stage" },
+      "desc": {
+        "zh": "正式场合还是幻灯片，但可以用 Markdown 写，改起来比 PPT 快得多。",
+        "en": "Formal occasions still call for slides, but Markdown produces them and they are far faster to edit than a PPT."
+      },
+      "items": [
+        {
+          "name": "Slidev",
+          "url": "https://github.com/slidevjs/slidev",
+          "type": "oss",
+          "stars": "★48,859",
+          "why": {
+            "zh": "Markdown 写幻灯片，代码高亮最好，适合技术类汇报。",
+            "en": "Slides in Markdown with the best code highlighting, made for technical talks."
+          },
+          "steal": {
+            "zh": "一份 md 出正式演示稿",
+            "en": "One Markdown file producing a formal deck"
+          }
+        },
+        {
+          "name": "reveal.js",
+          "url": "https://github.com/hakimel/reveal.js",
+          "type": "oss",
+          "stars": "★72,352",
+          "why": {
+            "zh": "网页幻灯片的鼻祖，插件生态最全。",
+            "en": "The original web slide framework, with the broadest plugin ecosystem."
+          },
+          "steal": {
+            "zh": "讲解备注、分栏、图表插件",
+            "en": "Speaker notes, columns and chart plugins"
+          }
+        },
+        {
+          "name": "Spectacle",
+          "url": "https://github.com/FormidableLabs/spectacle",
+          "type": "oss",
+          "stars": "★10,165",
+          "why": {
+            "zh": "用 React 写幻灯片，方便把自己做的图表组件直接嵌进去。",
+            "en": "Slides written in React, so your own chart components drop straight in."
+          },
+          "steal": {
+            "zh": "把看板嵌进演示页",
+            "en": "Embedding a dashboard in a deck"
+          }
+        },
+        {
+          "name": "Marp",
+          "url": "https://github.com/marp-team/marp-cli",
+          "type": "oss",
+          "stars": "★3,840",
+          "why": {
+            "zh": "Markdown 一键转 PDF 或 PPT，最省事的一条路。",
+            "en": "Markdown to PDF or PPTX in one command. The least effort route."
+          },
+          "steal": {
+            "zh": "快速出正式 PDF 交上去",
+            "en": "Producing a formal PDF to hand over"
+          }
+        },
+        {
+          "name": "impress.js",
+          "url": "https://github.com/impress/impress.js",
+          "type": "oss",
+          "stars": "★38,172",
+          "why": {
+            "zh": "三维空间演示，回头率最高。",
+            "en": "Three-dimensional presentations. The highest attention yield."
+          },
+          "steal": {
+            "zh": "开场用一次，别全程用",
+            "en": "Use once at the opening, never throughout"
+          }
+        },
+        {
+          "name": "WebSlides",
+          "url": "https://github.com/webslides/WebSlides",
+          "type": "oss",
+          "stars": "★6,325",
+          "why": {
+            "zh": "现成的 HTML 幻灯片模板，样式完整，改文案就能用。",
+            "en": "A complete HTML slide template. Change the copy and it is usable."
+          },
+          "steal": {
+            "zh": "没有时间自己排时的起点",
+            "en": "A starting point when there is no time to design"
+          }
+        },
+        {
+          "name": "Gamma",
+          "url": "https://gamma.app",
+          "type": "tool",
+          "why": {
+            "zh": "生成式演示工具，临时场合出稿最快。",
+            "en": "A generative deck tool, fastest for last-minute occasions."
+          },
+          "steal": {
+            "zh": "救急用，正式稿还是自己排",
+            "en": "For emergencies; formal decks are still worth laying out yourself"
+          }
+        },
+        {
+          "name": "Pitch",
+          "url": "https://pitch.com",
+          "type": "tool",
+          "why": {
+            "zh": "模板质量明显高于自带 PPT，协作也顺。",
+            "en": "Noticeably better templates than bundled slide software, and smoother collaboration."
+          },
+          "steal": {
+            "zh": "找好看版式的起点",
+            "en": "A starting point for a well-designed layout"
+          }
+        },
+        {
+          "name": "IEA World Energy Outlook",
+          "url": "https://www.iea.org/reports/world-energy-outlook-2024",
+          "type": "product",
+          "why": {
+            "zh": "权威报告的版式与图表规范，章节结构值得抄。",
+            "en": "Layout and chart conventions from an authoritative report; the chapter structure is worth copying."
+          },
+          "steal": {
+            "zh": "章节结构、图表注释写法",
+            "en": "Chapter structure and chart annotation"
+          }
+        }
+      ]
+    },
+    {
+      "id": "motion",
+      "no": "06",
+      "family": "approach",
+      "name": { "zh": "让它动起来", "en": "Make it move" },
+      "desc": {
+        "zh": "上面那些效果的技术底座。先只上平滑滚动，其余按需要再加。",
+        "en": "The technical base under everything above. Start with smooth scrolling alone and add the rest on demand."
+      },
+      "items": [
+        {
+          "name": "Lenis",
+          "url": "https://github.com/darkroomengineering/lenis",
+          "type": "oss",
+          "stars": "★16,055",
+          "why": {
+            "zh": "平滑滚动，性价比最高的一个改动，几行代码换掉生硬的手感。",
+            "en": "Smooth scrolling: the highest return per line of code, replacing a stiff scroll in minutes."
+          },
+          "steal": {
+            "zh": "直接加进任何现有页面",
+            "en": "Add it to any existing page"
+          }
+        },
+        {
+          "name": "GSAP",
+          "url": "https://github.com/greensock/GSAP",
+          "type": "oss",
+          "stars": "★28,671",
+          "why": {
+            "zh": "滚动、时间轴、逐帧动画的行业标准。",
+            "en": "The industry standard for scroll, timeline and frame animation."
+          },
+          "steal": {
+            "zh": "复杂动效才需要，商用授权先确认",
+            "en": "Only for complex motion; check the commercial licence first"
+          }
+        },
+        {
+          "name": "Motion",
+          "url": "https://github.com/motiondivision/motion",
+          "type": "oss",
+          "stars": "★33,760",
+          "why": {
+            "zh": "原 Framer Motion，React 项目里最顺手。",
+            "en": "Formerly Framer Motion, the smoothest fit in React."
+          },
+          "steal": {
+            "zh": "列表进出、卡片展开的过渡",
+            "en": "List transitions and card expansion"
+          }
+        },
+        {
+          "name": "anime.js",
+          "url": "https://github.com/juliangarnier/anime",
+          "type": "oss",
+          "stars": "★73,160",
+          "why": {
+            "zh": "轻量、语法简单，做数字滚动和图标动画很好。",
+            "en": "Lightweight with simple syntax, good for counting numbers and icon animation."
+          },
+          "steal": {
+            "zh": "数字往上滚的动效",
+            "en": "Numbers that count up"
+          }
+        },
+        {
+          "name": "AutoAnimate",
+          "url": "https://github.com/formkit/auto-animate",
+          "type": "oss",
+          "stars": "★13,924",
+          "why": {
+            "zh": "一行代码给列表加过渡，性价比极高。",
+            "en": "One line adds transitions to a list. Extremely high return."
+          },
+          "steal": {
+            "zh": "筛选、排序时的列表过渡",
+            "en": "List transitions during filter and sort"
+          }
+        },
+        {
+          "name": "Theatre.js",
+          "url": "https://github.com/theatre-js/theatre",
+          "type": "oss",
+          "stars": "★12,704",
+          "why": {
+            "zh": "可视化作关键帧，像做动画片一样调页面。",
+            "en": "Visual keyframing: tune the page the way you would animate a film."
+          },
+          "steal": {
+            "zh": "需要精细编排动效时用",
+            "en": "When motion needs precise choreography"
+          }
+        },
+        {
+          "name": "fullPage.js",
+          "url": "https://github.com/alvarotrigo/fullPage.js",
+          "type": "oss",
+          "stars": "★35,384",
+          "why": {
+            "zh": "整屏滚动，一屏一节，演示感强。",
+            "en": "Full-screen scrolling, one section per screen, with a strong presentation feel."
+          },
+          "steal": {
+            "zh": "GPL-3.0，商用之前先确认",
+            "en": "GPL-3.0, confirm before commercial use"
+          }
+        },
+        {
+          "name": "Swiper",
+          "url": "https://github.com/nolimits4web/swiper",
+          "type": "oss",
+          "stars": "★41,905",
+          "why": {
+            "zh": "轮播与滑动的标配，卡片墙和案例墙都用它。",
+            "en": "The default for carousels and swipes; used for card and case walls."
+          },
+          "steal": {
+            "zh": "卡片墙的滑动手感",
+            "en": "The swipe feel of a card wall"
+          }
+        },
+        {
+          "name": "three.js",
+          "url": "https://github.com/mrdoob/three.js",
+          "type": "oss",
+          "stars": "★116,004",
+          "why": {
+            "zh": "网页三维的完整方案，能做的东西最多。",
+            "en": "The complete solution for 3D on the web, capable of the most."
+          },
+          "steal": {
+            "zh": "收益最高但也最重，最后再考虑",
+            "en": "Highest ceiling but heaviest; consider it last"
+          }
+        },
+        {
+          "name": "react-three-fiber",
+          "url": "https://github.com/pmndrs/react-three-fiber",
+          "type": "oss",
+          "stars": "★32,580",
+          "why": {
+            "zh": "用 React 的写法写 three.js，状态管理跟项目一致。",
+            "en": "three.js written the React way, with state management that matches the rest of the project."
+          },
+          "steal": {
+            "zh": "三维场景的组件化写法",
+            "en": "Componentising a 3D scene"
+          }
+        },
+        {
+          "name": "Spline",
+          "url": "https://spline.design",
+          "type": "tool",
+          "why": {
+            "zh": "不用写三维代码，拖出来就能嵌进网页。",
+            "en": "No 3D code needed; drag it together and embed it."
+          },
+          "steal": {
+            "zh": "想要三维但不想学 three.js 时的出口",
+            "en": "The escape hatch when you want 3D without learning three.js"
+          }
+        },
+        {
+          "name": "Rive",
+          "url": "https://rive.app",
+          "type": "tool",
+          "why": {
+            "zh": "交互动画交付，界面动效领域目前最好的选择。",
+            "en": "Interactive animation handoff and currently the best choice for UI motion."
+          },
+          "steal": {
+            "zh": "界面里的动态图标、加载状态",
+            "en": "Animated icons and loading states in an interface"
+          }
+        },
+        {
+          "name": "Lottie",
+          "url": "https://github.com/airbnb/lottie-web",
+          "type": "oss",
+          "stars": "★32,129",
+          "why": {
+            "zh": "设计师出动画、开发直接用的标准格式。",
+            "en": "The standard format for a designer to hand animation to a developer."
+          },
+          "steal": {
+            "zh": "图标动效、空状态插画",
+            "en": "Icon motion and empty-state illustrations"
+          }
+        }
+      ]
+    },
+    {
+      "id": "ui",
+      "no": "07",
+      "family": "approach",
+      "name": { "zh": "搭一个界面", "en": "Build the interface" },
+      "desc": {
+        "zh": "看起来很难的效果，大部分已经有现成组件。按技术栈选一个底座就够。",
+        "en": "Most effects that look hard already have components. Pick one base for your stack and stay with it."
+      },
+      "items": [
+        {
+          "name": "shadcn/ui",
+          "url": "https://github.com/shadcn-ui/ui",
+          "type": "oss",
+          "stars": "★124,728",
+          "why": {
+            "zh": "现在做高级感界面的默认底座，组件代码直接进你的项目。",
+            "en": "The default base for a refined interface today; component code lands in your own project."
+          },
+          "steal": {
+            "zh": "卡片、表格、标签页的层级与间距",
+            "en": "Hierarchy and spacing in cards, tables and tabs"
+          }
+        },
+        {
+          "name": "MagicUI",
+          "url": "https://github.com/magicuidesign/magicui",
+          "type": "oss",
+          "stars": "★22,406",
+          "why": {
+            "zh": "现成的动效组件：跑马灯、便当栅格、光束连线、程序坞，都是看起来很难的效果。",
+            "en": "Ready-made motion components: marquees, bento grids, animated beams, docks. All the effects that look hard."
+          },
+          "steal": {
+            "zh": "直接拿这些效果拼首屏",
+            "en": "Assembling a hero out of them"
+          }
+        },
+        {
+          "name": "HeroUI",
+          "url": "https://github.com/heroui-inc/heroui",
+          "type": "oss",
+          "stars": "★30,839",
+          "why": {
+            "zh": "原 NextUI，观感现代，动效自带。",
+            "en": "Formerly NextUI: modern-looking with motion built in."
+          },
+          "steal": {
+            "zh": "快速搭出成体系的界面",
+            "en": "Building a coherent interface quickly"
+          }
+        },
+        {
+          "name": "Ant Design",
+          "url": "https://github.com/ant-design/ant-design",
+          "type": "oss",
+          "stars": "★99,629",
+          "why": {
+            "zh": "企业级中后台的成熟方案，国内项目最稳。",
+            "en": "The mature choice for enterprise back-office systems, and the safest in Chinese projects."
+          },
+          "steal": {
+            "zh": "表格、表单和复杂交互",
+            "en": "Tables, forms and complex interaction"
+          }
+        },
+        {
+          "name": "Mantine",
+          "url": "https://github.com/mantinedev/mantine",
+          "type": "oss",
+          "stars": "★31,777",
+          "why": {
+            "zh": "组件全、文档好，React 项目里上手快。",
+            "en": "Complete components and good documentation; quick to pick up in React."
+          },
+          "steal": {
+            "zh": "配套的 hooks 与表单校验",
+            "en": "Its hooks and form validation"
+          }
+        },
+        {
+          "name": "daisyUI",
+          "url": "https://github.com/saadeghi/daisyui",
+          "type": "oss",
+          "stars": "★42,495",
+          "why": {
+            "zh": "纯 CSS 组件类，任何技术栈都能用，改主题最方便。",
+            "en": "Pure CSS component classes that work with any stack, and the easiest theming."
+          },
+          "steal": {
+            "zh": "一键换主题的做法",
+            "en": "Switching themes in one step"
+          }
+        },
+        {
+          "name": "Radix Primitives",
+          "url": "https://github.com/radix-ui/primitives",
+          "type": "oss",
+          "stars": "★19,340",
+          "why": {
+            "zh": "无样式的交互底座，可访问性做得最扎实。",
+            "en": "Unstyled interaction primitives with the most solid accessibility."
+          },
+          "steal": {
+            "zh": "自己做组件时当底座",
+            "en": "A base for building your own components"
+          }
+        },
+        {
+          "name": "Tailwind CSS",
+          "url": "https://github.com/tailwindlabs/tailwindcss",
+          "type": "oss",
+          "stars": "★97,720",
+          "why": {
+            "zh": "上面这些库几乎都建在它上面。",
+            "en": "Nearly every library above is built on it."
+          },
+          "steal": {
+            "zh": "先把设计变量定下来，再谈组件",
+            "en": "Fix the design tokens before touching components"
+          }
+        },
+        {
+          "name": "Aceternity UI",
+          "url": "https://ui.aceternity.com",
+          "type": "tool",
+          "why": {
+            "zh": "大量发布会级的卡片、背景光效组件，代码可以直接复制。",
+            "en": "A large set of launch-grade cards and background effects with copyable code."
+          },
+          "steal": {
+            "zh": "首屏背景与卡片光效（商业产品，注意授权）",
+            "en": "Hero backgrounds and card glow (commercial product; check the licence)"
+          }
+        }
+      ]
+    },
+    {
+      "id": "ref",
+      "no": "08",
+      "family": "reference",
+      "name": { "zh": "找参考", "en": "Find a reference" },
+      "desc": {
+        "zh": "要动手之前先去这些地方看。它们不是做法，是货源。",
+        "en": "Look here before you start. These are not techniques; they are where the material comes from."
+      },
+      "subs": [
+        { "id": "gallery", "name": { "zh": "网页灵感榜", "en": "Web galleries" } },
+        { "id": "appui", "name": { "zh": "手机界面库", "en": "Mobile UI libraries" } },
+        { "id": "news", "name": { "zh": "数据新闻", "en": "Data journalism" } },
+        { "id": "agency", "name": { "zh": "设计机构", "en": "Design studios" } },
+        { "id": "productui", "name": { "zh": "产品界面参考", "en": "Product UI references" } },
+        { "id": "ossapp", "name": { "zh": "开源应用（可跑起来看）", "en": "Open-source apps you can run" } },
+        { "id": "report", "name": { "zh": "可交互报告工具", "en": "Interactive report tools" } }
+      ],
+      "items": [
+        {
+          "sub": "gallery",
+          "name": "Awwwards",
+          "url": "https://www.awwwards.com",
+          "type": "site",
+          "why": {
+            "zh": "全球网页设计评选榜，找成品灵感最快的地方。",
+            "en": "The global web design awards. The fastest way to find finished inspiration."
+          },
+          "steal": {
+            "zh": "按 Site of the Day 扫一遍，收集版面结构",
+            "en": "Scan Site of the Day for layout structures"
+          }
+        },
+        {
+          "sub": "gallery",
+          "name": "Godly",
+          "url": "https://godly.website",
+          "type": "site",
+          "why": {
+            "zh": "人工筛选的高质量网页库，比综合榜更克制。",
+            "en": "A hand-curated library of high-quality sites, more restrained than the big awards lists."
+          },
+          "steal": {
+            "zh": "找干净而高级的版面参考",
+            "en": "Finding clean, elevated layouts"
+          }
+        },
+        {
+          "sub": "gallery",
+          "name": "Land-book",
+          "url": "https://land-book.com",
+          "type": "site",
+          "why": {
+            "zh": "按行业和版面类型归档的落地页库，检索比刷榜高效。",
+            "en": "Landing pages filed by industry and layout type. More efficient to search than to scroll an awards list."
+          },
+          "steal": {
+            "zh": "先定版面结构，再填内容",
+            "en": "Choosing the layout structure before writing content"
+          }
+        },
+        {
+          "sub": "gallery",
+          "name": "Codrops",
+          "url": "https://tympanus.net/codrops/",
+          "type": "site",
+          "why": {
+            "zh": "不只给灵感，还给原理和可运行的代码，上手门槛最低。",
+            "en": "Not just inspiration: explanations and working code. The lowest barrier to starting."
+          },
+          "steal": {
+            "zh": "照着它的示例改自己的页面",
+            "en": "Adapting one of its demos to your own page"
+          }
+        },
+        {
+          "sub": "appui",
+          "name": "Mobbin",
+          "url": "https://mobbin.com",
+          "type": "site",
+          "why": {
+            "zh": "真实 App 的截图与完整流程库，做某个 App 的界面时从这里找最快。",
+            "en": "Screenshots and complete flows from real apps. The fastest place to start on a specific app interface."
+          },
+          "steal": {
+            "zh": "按行业筛，金融和投资类单独看",
+            "en": "Filter by industry; browse finance and investing separately"
+          }
+        },
+        {
+          "sub": "appui",
+          "name": "Refero",
+          "url": "https://refero.design",
+          "type": "site",
+          "why": {
+            "zh": "按界面元素检索的真实产品设计参考，颗粒度比截图库细。",
+            "en": "Real product design references searchable by UI element; finer-grained than a screenshot library."
+          },
+          "steal": {
+            "zh": "找具体的图表页、设置页怎么排",
+            "en": "Seeing how a chart page or settings page is laid out"
+          }
+        },
+        {
+          "sub": "appui",
+          "name": "Page Flows",
+          "url": "https://pageflows.com",
+          "type": "site",
+          "why": {
+            "zh": "录屏式记录真实产品的操作流程，能看清点下去之后发生什么。",
+            "en": "Screen-recorded flows from real products, showing what happens after the click."
+          },
+          "steal": {
+            "zh": "设计交互流程时的对照",
+            "en": "A benchmark when designing an interaction flow"
+          }
+        },
+        {
+          "sub": "appui",
+          "name": "ScreensDesign",
+          "url": "https://screensdesign.com",
+          "type": "site",
+          "why": {
+            "zh": "按付费转化拆解真实 App 的界面，看的是设计背后的动机。",
+            "en": "Dissects real apps by conversion step, so you see the motive behind the design."
+          },
+          "steal": {
+            "zh": "引导流程和付费页的写法",
+            "en": "Onboarding flows and paywall pages"
+          }
+        },
+        {
+          "sub": "appui",
+          "name": "UI Sources",
+          "url": "https://www.uisources.com",
+          "type": "site",
+          "why": {
+            "zh": "按交互类型归类真实 App 的动效，找微交互很方便。",
+            "en": "Real app motion filed by interaction type; handy for micro-interactions."
+          },
+          "steal": {
+            "zh": "加载、展开、切换的过渡方式",
+            "en": "Loading, expanding and switching transitions"
+          }
+        },
+        {
+          "sub": "news",
+          "name": "FT 视觉新闻",
+          "url": "https://ig.ft.com",
+          "type": "site",
+          "why": {
+            "zh": "把复杂数据讲成人人看得懂的图，做汇报最该学的一组。",
+            "en": "Complex data turned into charts anyone can read. The single most useful reference for reporting."
+          },
+          "steal": {
+            "zh": "图注写法、色彩克制、结论前置",
+            "en": "Chart captions, restrained colour, conclusion first"
+          }
+        },
+        {
+          "sub": "news",
+          "name": "Reuters Graphics",
+          "url": "https://www.reuters.com/graphics/",
+          "type": "site",
+          "why": {
+            "zh": "新闻级图表规范，每张图都能独立看懂。",
+            "en": "Newsroom-grade chart discipline: every chart stands on its own."
+          },
+          "steal": {
+            "zh": "图表标题直接写结论",
+            "en": "Writing the conclusion in the chart title"
+          }
+        },
+        {
+          "sub": "news",
+          "name": "The Pudding",
+          "url": "https://pudding.cool",
+          "type": "site",
+          "why": {
+            "zh": "用滚动和交互讲故事的天花板，视觉化叙事的范本。",
+            "en": "The ceiling for storytelling with scroll and interaction, and a model for visual narrative."
+          },
+          "steal": {
+            "zh": "数据叙事的分镜设计",
+            "en": "Storyboarding a data narrative"
+          }
+        },
+        {
+          "sub": "news",
+          "name": "Information is Beautiful",
+          "url": "https://www.informationisbeautiful.net",
+          "type": "site",
+          "why": {
+            "zh": "信息图的另一种路数，复杂关系画成一张图。",
+            "en": "A different route for infographics: complex relationships drawn as a single image."
+          },
+          "steal": {
+            "zh": "一张图讲清一个复杂议题",
+            "en": "Explaining a complex issue in one image"
+          }
+        },
+        {
+          "sub": "news",
+          "name": "Our World in Data",
+          "url": "https://ourworldindata.org",
+          "type": "site",
+          "why": {
+            "zh": "图表规范、配色、注释方式都值得直接照搬。",
+            "en": "Chart conventions, colour and annotation all worth adopting wholesale."
+          },
+          "steal": {
+            "zh": "统一配色体系加清晰图例",
+            "en": "One colour system with clear legends"
+          }
+        },
+        {
+          "sub": "news",
+          "name": "SCMP Infographics",
+          "url": "https://www.scmp.com/infographics/",
+          "type": "site",
+          "why": {
+            "zh": "中英双语环境下的信息图，最贴近香港读者的阅读习惯。",
+            "en": "Infographics in a bilingual environment, closest to how Hong Kong readers actually read."
+          },
+          "steal": {
+            "zh": "中英混排的图表标注",
+            "en": "Chart labelling with mixed Chinese and English"
+          }
+        },
+        {
+          "sub": "news",
+          "name": "财新数字说",
+          "url": "https://datanews.caixin.com",
+          "type": "site",
+          "why": {
+            "zh": "中文语境下的数据叙事，最贴近你的受众。",
+            "en": "Data storytelling written for a Chinese audience, closest to your readers."
+          },
+          "steal": {
+            "zh": "中文标题写法、图表里的中文排版",
+            "en": "Chinese headline writing and Chinese typography inside charts"
+          }
+        },
+        {
+          "sub": "news",
+          "name": "澎湃新闻 · 美数课",
+          "url": "https://www.thepaper.cn",
+          "type": "site",
+          "why": {
+            "zh": "面向大众的数据栏目，把专业内容降维讲清楚。",
+            "en": "A mass-market data desk that makes specialist material legible to everyone."
+          },
+          "steal": {
+            "zh": "给非专业读者的解释顺序",
+            "en": "The order in which things are explained to non-specialists"
+          }
+        },
+        {
+          "sub": "agency",
+          "name": "Active Theory",
+          "url": "https://activetheory.net",
+          "type": "org",
+          "why": {
+            "zh": "专做这类页面的顶级团队，作品集本身就是最好的参考库。",
+            "en": "A top-tier studio for exactly this kind of page; its portfolio is the reference library."
+          },
+          "steal": {
+            "zh": "每个项目拆解它的入场动效与转场",
+            "en": "Break each project down into its entrance motion and transitions"
+          }
+        },
+        {
+          "sub": "agency",
+          "name": "Immersive Garden",
+          "url": "https://www.immersive-garden.com",
+          "type": "org",
+          "why": {
+            "zh": "滚动叙事与三维结合得非常顺，节奏控制是教科书级。",
+            "en": "Scroll narrative fused smoothly with 3D; the pacing is textbook."
+          },
+          "steal": {
+            "zh": "画面节奏与色彩克制度",
+            "en": "Pacing and colour restraint"
+          }
+        },
+        {
+          "sub": "agency",
+          "name": "Resn",
+          "url": "https://www.resn.co.nz",
+          "type": "org",
+          "why": {
+            "zh": "互动创意做得大胆，适合找「敢一点」的做法。",
+            "en": "Bold interactive work, useful when you need something braver."
+          },
+          "steal": {
+            "zh": "把互动机制当成叙事的一部分",
+            "en": "Treating the interaction itself as part of the story"
+          }
+        },
+        {
+          "sub": "agency",
+          "name": "Hello Monday",
+          "url": "https://hellomonday.com",
+          "type": "org",
+          "why": {
+            "zh": "大品牌官网的专业户，结构清晰、执行稳。",
+            "en": "Specialists in big-brand sites: clear structure, reliable execution."
+          },
+          "steal": {
+            "zh": "企业级官网的信息结构",
+            "en": "Information architecture for an enterprise site"
+          }
+        },
+        {
+          "sub": "agency",
+          "name": "Basement Studio",
+          "url": "https://basement.studio",
+          "type": "org",
+          "why": {
+            "zh": "自己开源了滚动叙事引擎，官网就是那套引擎的展示。",
+            "en": "They open-sourced their scroll narrative engine; the site is the demo of it."
+          },
+          "steal": {
+            "zh": "把官网当成技术方案的说明书",
+            "en": "Treating the site as documentation for the technique"
+          }
+        },
+        {
+          "sub": "agency",
+          "name": "Studio Freight",
+          "url": "https://studiofreight.com",
+          "type": "org",
+          "why": {
+            "zh": "把极简排版做到极致，页面几乎只有字和动效。",
+            "en": "Minimal typography pushed to its limit; almost nothing but type and motion."
+          },
+          "steal": {
+            "zh": "只用排版也能撑起一页",
+            "en": "Carrying a whole page with typography alone"
+          }
+        },
+        {
+          "sub": "agency",
+          "name": "Locomotive",
+          "url": "https://locomotive.ca",
+          "type": "org",
+          "why": {
+            "zh": "平滑滚动库的开发者，官网手感就是标准答案。",
+            "en": "The makers of the smooth-scroll library; their site is the reference implementation."
+          },
+          "steal": {
+            "zh": "滚动的手感和缓动曲线",
+            "en": "Scroll feel and easing curves"
+          }
+        },
+        {
+          "sub": "agency",
+          "name": "Merci-Michel",
+          "url": "https://www.merci-michel.com",
+          "type": "org",
+          "why": {
+            "zh": "互动广告出身，擅长把复杂交互做得轻松。",
+            "en": "From interactive advertising; good at making complex interaction feel effortless."
+          },
+          "steal": {
+            "zh": "让用户不动脑就知道下一步",
+            "en": "Signalling the next step without making anyone think"
+          }
+        },
+        {
+          "sub": "productui",
+          "name": "Robinhood",
+          "url": "https://robinhood.com",
+          "type": "product",
+          "why": {
+            "zh": "投资类 App 的界面范式，信息密度和视觉层次的标杆。",
+            "en": "The interface paradigm for investing apps, and a benchmark for density and hierarchy."
+          },
+          "steal": {
+            "zh": "持仓页与行情页的组织方式",
+            "en": "How positions and quotes pages are organised"
+          }
+        },
+        {
+          "sub": "productui",
+          "name": "Copilot Money",
+          "url": "https://copilot.money",
+          "type": "product",
+          "why": {
+            "zh": "个人理财 App 里设计口碑最好的之一，图表和分类做得极细。",
+            "en": "Among the best-designed personal finance apps; charts and categories are finely done."
+          },
+          "steal": {
+            "zh": "消费分类与趋势图的配色",
+            "en": "Colour in category and trend charts"
+          }
+        },
+        {
+          "sub": "productui",
+          "name": "Koyfin",
+          "url": "https://www.koyfin.com",
+          "type": "product",
+          "why": {
+            "zh": "专业投研终端里界面最清爽的一个，图表密度高但不挤。",
+            "en": "The cleanest interface among professional research terminals: dense charts that still breathe."
+          },
+          "steal": {
+            "zh": "多图同屏时的间距与分区",
+            "en": "Spacing and zoning when several charts share a screen"
+          }
+        },
+        {
+          "sub": "productui",
+          "name": "TradingView",
+          "url": "https://www.tradingview.com",
+          "type": "product",
+          "why": {
+            "zh": "金融图表交互的行业基准，缩放和标注的手感最好。",
+            "en": "The industry benchmark for financial chart interaction; zooming and annotation feel best here."
+          },
+          "steal": {
+            "zh": "图表上的标注与区间选择",
+            "en": "Annotation and range selection on a chart"
+          }
+        },
+        {
+          "sub": "productui",
+          "name": "Monarch Money",
+          "url": "https://www.monarchmoney.com",
+          "type": "product",
+          "why": {
+            "zh": "把资产总览做成一张图，个人财务的仪表盘范式。",
+            "en": "The whole net worth in one view; a dashboard paradigm for personal finance."
+          },
+          "steal": {
+            "zh": "总览页的层级安排",
+            "en": "The hierarchy of an overview page"
+          }
+        },
+        {
+          "sub": "ossapp",
+          "name": "OpenBB",
+          "url": "https://github.com/OpenBB-finance/OpenBB",
+          "type": "oss",
+          "stars": "★73,556",
+          "why": {
+            "zh": "开源的投研终端，界面专业，能在本地完整跑起来。",
+            "en": "An open-source investment research terminal with a professional interface that runs locally."
+          },
+          "steal": {
+            "zh": "研究报告页与数据表的组织方式",
+            "en": "How research pages and data tables are organised"
+          }
+        },
+        {
+          "sub": "ossapp",
+          "name": "Maybe",
+          "url": "https://github.com/maybe-finance/maybe",
+          "type": "oss",
+          "stars": "★54,262",
+          "why": {
+            "zh": "开源个人理财应用，界面精致程度在开源界罕见，已停止维护但代码仍可参考。",
+            "en": "An open-source personal finance app with rare polish for open source. No longer maintained, but the code still reads well."
+          },
+          "steal": {
+            "zh": "图表配色与卡片层级",
+            "en": "Chart colour and card hierarchy"
+          }
+        },
+        {
+          "sub": "ossapp",
+          "name": "Ghostfolio",
+          "url": "https://github.com/ghostfolio/ghostfolio",
+          "type": "oss",
+          "stars": "★9,367",
+          "why": {
+            "zh": "开源投资组合跟踪工具，正好对应多资产配置这个场景。",
+            "en": "An open-source portfolio tracker, matching the multi-asset allocation scenario directly."
+          },
+          "steal": {
+            "zh": "组合配置页与资产分布图",
+            "en": "Allocation pages and asset distribution charts"
+          }
+        },
+        {
+          "sub": "ossapp",
+          "name": "Actual Budget",
+          "url": "https://github.com/actualbudget/actual",
+          "type": "oss",
+          "stars": "★29,190",
+          "why": {
+            "zh": "开源预算应用，交互响应快，前端实现干净。",
+            "en": "An open-source budgeting app with fast interaction and a clean front-end."
+          },
+          "steal": {
+            "zh": "表格类界面的键盘操作",
+            "en": "Keyboard-first operation in table interfaces"
+          }
+        },
+        {
+          "sub": "report",
+          "name": "Shorthand",
+          "url": "https://shorthand.com",
+          "type": "tool",
+          "why": {
+            "zh": "不写代码就能做可交互长报告，年报和专题页模板很多。",
+            "en": "Interactive long-form reports with no code, with plenty of annual-report and feature templates."
+          },
+          "steal": {
+            "zh": "要快速出对外长页时用",
+            "en": "When an external long page is needed quickly"
+          }
+        },
+        {
+          "sub": "report",
+          "name": "Ceros",
+          "url": "https://www.ceros.com",
+          "type": "tool",
+          "why": {
+            "zh": "设计自由度最高的交互内容平台，营销侧用得最多。",
+            "en": "The most design-flexible interactive content platform, most used on the marketing side."
+          },
+          "steal": {
+            "zh": "不写代码做复杂版式",
+            "en": "Complex layout without writing code"
+          }
+        },
+        {
+          "sub": "report",
+          "name": "Infogram",
+          "url": "https://infogram.com",
+          "type": "tool",
+          "why": {
+            "zh": "图表和信息图模板最全的在线工具。",
+            "en": "The online tool with the most complete chart and infographic templates."
+          },
+          "steal": {
+            "zh": "需要大量模板时按需取用",
+            "en": "Pulling templates when volume matters"
+          }
+        },
+        {
+          "sub": "report",
+          "name": "Tableau Public",
+          "url": "https://public.tableau.com",
+          "type": "tool",
+          "why": {
+            "zh": "公开作品库，能看到别人怎么做联动和筛选。",
+            "en": "A public gallery showing how others build cross-filtering and linking."
+          },
+          "steal": {
+            "zh": "多图联动的公开案例",
+            "en": "Public examples of linked charts"
+          }
+        }
+      ]
+    }
+  ]
+}

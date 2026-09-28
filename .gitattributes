@@ -1,0 +1,9 @@
+# Normalise line endings. This is a web repository: LF everywhere keeps the
+# generated HTML and Markdown diffable across Windows and macOS.
+* text=auto eol=lf
+
+# Binary assets
+*.png binary
+*.jpg binary
+*.webp binary
+*.pptx binary

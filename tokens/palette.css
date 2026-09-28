@@ -1,0 +1,46 @@
+/* Visual Playbook — colour tokens
+ *
+ * One palette for every project that borrows from this repository.
+ * White ground, navy display type, one warm accent. Keep it that way:
+ * a second accent colour is what makes material look like it came from
+ * different people.
+ */
+
+:root {
+  /* Ground */
+  --vp-paper:        #ffffff;
+  --vp-wash-blue:    rgba(64, 120, 232, 0.10);
+  --vp-wash-warm:    rgba(239, 111, 12, 0.10);
+  --vp-dot:          rgba(15, 29, 51, 0.055);
+
+  /* Type */
+  --vp-navy:         #0f1d33;   /* display headings */
+  --vp-navy-2:       #1b2c4a;   /* emphasised body copy */
+  --vp-ink:          #33415c;   /* body */
+  --vp-muted:        #6b7a94;   /* captions, labels */
+
+  /* Lines */
+  --vp-line:         #e5e9f1;
+  --vp-line-soft:    #eef1f7;
+
+  /* One accent */
+  --vp-accent:       #ef6f0c;
+  --vp-accent-2:     #f79a45;
+  --vp-accent-soft:  #fff3e8;
+
+  /* Status — only for meaning, never for decoration */
+  --vp-green:        #12795f;   /* open source */
+  --vp-green-soft:   #e7f5f1;
+  --vp-blue:         #2f5fbf;   /* sites */
+  --vp-blue-soft:    #eef4ff;
+  --vp-violet:       #5b4bb8;   /* studios */
+  --vp-violet-soft:  #f2f0fb;
+  --vp-rose:         #b93a63;   /* products */
+  --vp-rose-soft:    #fdf0f4;
+
+  /* Elevation */
+  --vp-radius:       14px;
+  --vp-radius-sm:    9px;
+  --vp-shadow:       0 1px 2px rgba(15, 29, 51, .05), 0 8px 24px rgba(15, 29, 51, .06);
+  --vp-shadow-lift:  0 2px 6px rgba(15, 29, 51, .07), 0 18px 40px rgba(15, 29, 51, .12);
+}
